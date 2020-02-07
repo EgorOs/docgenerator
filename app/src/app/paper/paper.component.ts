@@ -23,13 +23,14 @@ export class PaperComponent implements OnInit {
   }
   paperBgUrls = [
     "url('https://images.unsplash.com/photo-1566041510632-30055e21a9cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9')",
-    "url('https://www.altes-papier.com/wp-content/uploads/2018/03/pa02b-altes-Universalpapier-grau-nadeldrucker-retro-grafik.jpg')",
-    "url('https://i.etsystatic.com/7388389/r/il/922bcf/1291573733/il_570xN.1291573733_93v3.jpg')",
+    "url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_NF1bGCj1mSbTfuuh2408tjJU7qnlOdOc09hMzIm22TT05kD6')",
+    "url('https://imjustcreative.com/wp-content/uploads/ImJustCreative-2010-08-23-at-06.49.36.jpg')",
   ];
   randomPaperBg = this.getRandom(this.paperBgUrls);
   textColor = "rgba(0,0,0,.8)";
   textShadow = "0 0 1px rgba(0,0,0," + Math.random() + ")";
+  overlayColor = "rgba(255,255,255," + Math.random() + ")";
   innerAreaVerticalPadding = getRandomIntInclusive(0, 50) + 'px';
-  innerAreaHorizontalPadding = getRandomIntInclusive(5, 20) + '%';
+  innerAreaHorizontalPadding = getRandomIntInclusive(15, 25) + '%';
 
 }

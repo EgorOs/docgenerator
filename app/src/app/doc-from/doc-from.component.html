@@ -10,11 +10,9 @@
 </style>
 
 <div id="from" [ngStyle]="{'border': this.borderConf}">
-  <h3>RA Marcus Goldschmidt | Pohlstrasse 55 | 40218 Düsseldorf</h3>
+  <h3>{{ fromName }} | Pohlstrasse 55 | 40218 Düsseldorf</h3>
   <ul>
-    <li>An Frau</li>
-    <li>Katja Schwab</li>
-    <li>Leopoldstraße 6</li>
-    <li>57074 Siegen</li>
+    <li>{{ toName }}</li>
+    <li>{{ address }}</li>
   </ul>
 </div>

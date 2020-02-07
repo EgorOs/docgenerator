@@ -20,7 +20,7 @@ export class LogoComponent implements OnInit {
   }
   logoWidth = getRandomIntInclusive(100, 240) + 'px'
   logoHeight = getRandomIntInclusive(80, 170) + 'px'
-  horizontalMargin = getRandomIntInclusive(40, 60) + '%'
+  horizontalMargin = this.getRandom([10, 45, 75]) + '%'
   verticalMargin = getRandomIntInclusive(20, 40) + 'px'
 
   getRandom(arr) {
@@ -29,11 +29,10 @@ export class LogoComponent implements OnInit {
 
   logoUrls = [
     "url('https://logos-download.com/wp-content/uploads/2016/03/Rolex_logo.png')",
-    "url('https://www.freepnglogos.com/uploads/mcdonalds-png-logo/mcdonalds-brand-logo-png-7.png')",
+    "url('https://www.pngarts.com/files/3/Logo-Free-PNG-Image.png')",
     "url('https://dezov.s3.amazonaws.com/media/twitch-logo-png2c5-4796-8bfc-730d57da68f6.png')",
-    "url('https://lh3.googleusercontent.com/proxy/E-Tg1tH0xDnjNo9j5kQq4LInMUYw26k98zuCFfQLSau_pW17d9sH9uyYmN1RIoZKR4NCFspKls8yf0UyTz0TGUTMRXmgz4Jhaai8xg')",
     "url('https://s1.logaster.com/static/v3/img/products/logo.png')",
-    "url('https://lh3.googleusercontent.com/proxy/h_6RLcVMbLNFr6izEaWxov2av8s4OYNZPx-HiH6zA-3YLisw6s9bFFYAnjR9x8xpqCvfsBkRWCXLVsNmaeWcbK5-KfUNrnOxPaxaZXvXNJPdexM')",
+    "url('https://argusdental.com/wp-content/uploads/2017/08/Master-Plan-Logo-PNG.png')",
   ]
   randomLogo = this.getRandom(this.logoUrls)
 }
