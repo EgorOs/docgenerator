@@ -1,0 +1,18 @@
+<div id="paper-wrapper"
+     [ngStyle]="{
+      'background': this.randomPaperBg,
+      'color': this.textColor,
+      'text-shadow': this.textShadow,
+      'background-size': 'cover'
+    }">
+  <div id="inner"
+       [ngStyle]="{
+      'padding': this.innerAreaVerticalPadding + ' ' + this.innerAreaHorizontalPadding
+    }">
+    <app-header>
+    </app-header>
+    <app-content>
+
+    </app-content>
+  </div>
+</div>
