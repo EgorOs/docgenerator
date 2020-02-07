@@ -35,7 +35,7 @@ const findDocuments = function(db, callback) {
 const getRandomRecordOfType = function(db, type, callback) {
   // Get the documents collection
   const collection = db.collection('documents');
-  // Find some documents .aggregate([ { $sample: { size: 1 } } ])
+  // Find some documents
   collection.aggregate([
   	{$match: {'type': type}},
   	{$sample: { size: 1 }}]
@@ -69,10 +69,16 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// Enable CORS (It solves CORS problem, wow!)
+// Found here: https://levelup.gitconnected.com/simple-application-with-angular-6-node-js-express-2873304fff0f
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next()})
+
 app.get('/:type', (req, res) => 
 	MongoClient.connect(url, function(err, client) {
 	  assert.equal(null, err);
-	  console.log("Connected successfully to server");
 	 
 	  const db = client.db(dbName);
 	  

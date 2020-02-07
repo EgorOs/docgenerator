@@ -9,6 +9,8 @@ import { LogoComponent } from './logo/logo.component';
 import { DocFromComponent } from './doc-from/doc-from.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContentComponent } from './content/content.component';
+import { HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ContentComponent } from './content/content.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
