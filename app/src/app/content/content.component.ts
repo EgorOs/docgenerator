@@ -18,8 +18,8 @@ export class ContentComponent implements OnInit {
   }
 
   text = ''
-  wordSpacing = getRandomIntInclusive(3, 12) + 'px'
-  lineHeight = getRandomIntInclusive(17, 30) + 'px'
+  wordSpacing = getRandomIntInclusive(3, 10) + 'px'
+  lineHeight = getRandomIntInclusive(17, 24) + 'px'
 
   ngOnInit(): void {
     this.getValFromEndpoint('text', 'content')

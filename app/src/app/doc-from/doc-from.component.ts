@@ -1,10 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// function getRandomIntInclusive(min, max) {
+//   min = Math.ceil(min);
+//   max = Math.floor(max);
+//   return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+// }
+//
+// let random_style = `
+// h3{
+//   font-size: ${getRandomIntInclusive(16, 25)}pt;
+// }
+// `
+
 @Component({
   selector: 'app-doc-from',
   templateUrl: './doc-from.component.html',
-  styleUrls: ['./doc-from.component.sass']
+  styleUrls: ['./doc-from.component.sass'],
+  // styles: [random_style]
 })
 export class DocFromComponent implements OnInit {
 

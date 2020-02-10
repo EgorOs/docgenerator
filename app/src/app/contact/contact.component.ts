@@ -9,13 +9,16 @@ import { HttpClient } from '@angular/common/http';
 export class ContactComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
-
+    name = ''
+    address = ''
     phoneNum = ''
     faxNum = ''
     emailAddr = ''
 
   ngOnInit(): void {
     this.getValFromEndpoint('phoneNum', 'phone')
+    this.getValFromEndpoint('address', 'address')
+    this.getValFromEndpoint('name', 'name')
     this.getValFromEndpoint('faxNum', 'fax')
     this.getValFromEndpoint('emailAddr', 'email')
   }

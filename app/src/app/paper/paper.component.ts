@@ -26,7 +26,15 @@ export class PaperComponent implements OnInit {
     "url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_NF1bGCj1mSbTfuuh2408tjJU7qnlOdOc09hMzIm22TT05kD6')",
     "url('https://imjustcreative.com/wp-content/uploads/ImJustCreative-2010-08-23-at-06.49.36.jpg')",
   ];
+  fontList = [
+    'Arial',
+    'Thames New Roman',
+    'Garamond',
+    'Tahoma',
+  ]
+
   randomPaperBg = this.getRandom(this.paperBgUrls);
+  fontFamily = this.getRandom(this.fontList);
   textColor = "rgba(0,0,0,.8)";
   textShadow = "0 0 1px rgba(0,0,0," + Math.random() + ")";
   overlayColor = "rgba(255,255,255," + Math.random() + ")";

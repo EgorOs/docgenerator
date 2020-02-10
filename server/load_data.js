@@ -45,25 +45,37 @@ const insertDocuments = function(db, callback) {
   	{type: 'email', value: 'k.adams@adams-kö.de'},
 
   	// contents
-  	{type: 'content', value: `Hallo Thomas,
-							  anbei wie tel. besprochen meine offenen Rechnungen sowie das Anschreiben dazu. 
-							  Ausserdem, damit Du einen Überblick hast, die Bauzeitenverzögerung durch die Umplanung aufgrund meines Fehlers. 
-							  Hier: 2 verschiedene Bauzeitenpläne des Bauunternehmers, einmal vor und einmal nach dem Schadenseintritt. 
-							  Den Mailverkehr mit der VHV und mit meinem Cousin sende ich Dir cc separat aus dem Mailordner, falls gewünscht. Zunächst mal geht es ja darum, meinen offenen Honorarrechnungen nachzugehen. 
-							  Der Streit um die Schadenssumme ist, wie erwähnt, von einem anderen Bauvorhaben 
-							  Danke schonmal, dass Du Dich der Sache annimmst. 
-							  Melde Dich bitte, sobald Du irgendwelche Unterlagen benötigst, um den ganzen Komplex besser verstehen zu können.`},
+  	{type: 'content', value: `
+Hallo Thomas,
+hier nochmal meine Rechnungen und Anschreiben zu der Streitgeschichte.
+Einen schriftlichen Architektenvertrag hat es, wie immer wenn ich für meinen Cousin gearbeitet habe, nicht gegeben. Das lief alles mündlich, und bis dahin habe ich auch immer mein Honorar bekommen, auch wenn es meist nicht allzu schnell überwiesen wurde.
+Der Planungsauftrag für die offenen Rechnungen belief sich auf eine Grundlagenermittlung, Vorentwurfs- und Entwurfsplanung einschl. 3D-Darstellung, in mehreren Varianten für eine Umnutzung einer seiner Hallen plus einen Verwaltungsneubau dazu.
+Anbei sende ich Dir zusätzlich zu den Rechnunaen den letzten Planungsstand, den mein Cousin auch so bekommen und an seinen Mietinteressenten (Fa. Gilato aus Hattingen, die verlegt bundesweit Glasfaserkabel) weitergeleitet hat.
+Gruss, Dieter
+`},
   	{type: 'content', value: ` 
-							Mit E-Mail vom 16.02.2015 rügte der Bauherr gegenüber der Klägerin 
-							einen neuen Mangel im Dachbereich und forderte die Klägerin dazu auf, 
-							diesen Mangel in angemessener Frist zu beseitigen. Die Klägerin leitete 
-							die Mängelrüge des Bauherrn an 17.02.2015 an die Beklagte weiter. Die 
-							Beklagte entsandte am 18.02.2015 zwei Mitarbeiter zum Bauvorhaben, 
-							um die Mängelrüge des Bauherrn zu überprüfen und gegebenenfalls 
-							Mängelbeseitigungsarbeiten durchzuführen. Dort erklärte Herr Franke, 
-							ein Gesellschafter des Bauherrn, den Mitarbeitern der Beklagten, dass er 
-							ihnen den Zutritt zu den Dachflächen nicht gewähre, da der Bauherr 
-							keine Arbeiten durch die Beklagte an den Dachflächen mehr zulasse. 
+Mit E-Mail vom 16.02.2015 rügte der Bauherr gegenüber der Klägerin
+einen neuen Mangel im Dachbereich und forderte die Klägerin dazu auf,
+diesen Mangel in angemessener Frist zu beseitigen. Die Klägerin leitete
+die Mängelrüge des Bauherrn an 17.02.2015 an die Beklagte weiter. Die
+Beklagte entsandte am 18.02.2015 zwei Mitarbeiter zum Bauvorhaben,
+um die Mängelrüge des Bauherrn zu überprüfen und gegebenenfalls
+Mängelbeseitigungsarbeiten durchzuführen. Dort erklärte Herr Franke,
+ein Gesellschafter des Bauherrn, den Mitarbeitern der Beklagten, dass er
+ihnen den Zutritt zu den Dachflächen nicht gewähre, da der Bauherr
+keine Arbeiten durch die Beklagte an den Dachflächen mehr zulasse.
+  	`},  	
+   {type: 'content', value: `
+In dem Rechtstreit
+Manfred König
+gegen
+AHA-Bau GmbH u.a.
+zeige ich an, den Beklagten zu 3) anwaltlich zu vertreten. Vollmachtabschrift liegt an.
+Wir zeigen hiermit Verteidigungsbereitschaft an.
+Das Gericht wird höflich darum ersucht, dem Unterzeichner die Gerichtsakte zur Einsicht- nahme in den
+Büroräumen des Unterzeichners für 3 Tage zur Verfügung zu stellen.
+Aus der übersandten Klageerwiderungsschrift vom 2. November 2015 Iässt sich der Sachverhalt nicht
+hinreichend entnehmen.
   	`},
   ], function(err, result) {
     assert.equal(err, null);
