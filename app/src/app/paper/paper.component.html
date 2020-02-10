@@ -1,29 +1,25 @@
 <div id="paper-wrapper"
      [ngStyle]="{
-      'background': this.randomPaperBg,
+      'background': this.overlayColor + ' ' + this.randomPaperBg,
       'color': this.textColor,
       'text-shadow': this.textShadow,
       'background-size': 'cover',
+      'background-blend-mode': 'overlay',
       'background-repeat': 'no-repeat',
       'overflow': 'hidden',
       'z-index': '-3',
-      'height': '700px'
+      'height': '100%'
     }">
+
   <div id="inner"
        [ngStyle]="{
-      'padding': this.innerAreaVerticalPadding + ' ' + this.innerAreaHorizontalPadding,
-      'background': this.overlayColor,
-      'display': 'block',
-      'position': 'absolute',
-      'top': '0px',
-      'left': '0px',
-      'height': '700px'
-      }">
+        'padding': this.innerAreaVerticalPadding + ' ' + this.innerAreaHorizontalPadding,
+        'height': '100%'
+        }">
 
     <app-header>
     </app-header>
     <app-content>
 
     </app-content>
-  </div>
 </div>

@@ -1,6 +1,7 @@
 <p [ngStyle]="{
       'word-spacing': wordSpacing,
       'line-height': lineHeight
-    }">
-  {{text}}
+    }"
+  [innerHTML]="text"
+>
 </p>

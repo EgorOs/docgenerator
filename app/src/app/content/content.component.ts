@@ -19,7 +19,7 @@ export class ContentComponent implements OnInit {
 
   text = ''
   wordSpacing = getRandomIntInclusive(3, 12) + 'px'
-  lineHeight = getRandomIntInclusive(20, 42) + 'px'
+  lineHeight = getRandomIntInclusive(17, 30) + 'px'
 
   ngOnInit(): void {
     this.getValFromEndpoint('text', 'content')
@@ -27,10 +27,17 @@ export class ContentComponent implements OnInit {
 
   getValFromEndpoint(variable, endpoint): void {
     this.http.get('http://127.0.0.1:3000/' + endpoint).subscribe((data:any) => {
-      console.log(this)
-      this[variable] = data[0].value
+      this[variable] = this.fixSpaces(data[0].value);
     }, error => {
       console.log("There was an error:", error);
     });
+  }
+
+  fixSpaces(str) {
+    // let tab_re = new RegExp('\t', 'g');
+    // str = str.replace(tab_re, '&nbsp');
+    let nl_re = new RegExp('\n', 'g');
+    str = str.replace(nl_re, '</br></br>');
+    return str
   }
 }
