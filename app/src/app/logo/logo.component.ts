@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BaseRandomizedComponent} from "../base-randomized/base-randomized.component";
-
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-}
+import { BaseRandomizedComponent } from "../base-randomized/base-randomized.component";
+import { Randomization} from "../utils";
 
 @Component({
   selector: 'app-logo',
@@ -17,14 +12,10 @@ export class LogoComponent extends  BaseRandomizedComponent{
 
   ngOnInit(): void {
   }
-  logoWidth = getRandomIntInclusive(100, 240) + 'px'
-  logoHeight = getRandomIntInclusive(80, 170) + 'px'
-  horizontalMargin = this.getRandom([10, 45, 75]) + '%'
-  verticalMargin = getRandomIntInclusive(20, 40) + 'px'
-
-  getRandom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)]
-  }
+  logoWidth = Randomization.getRandomIntInclusive(100, 240) + 'px'
+  logoHeight = Randomization.getRandomIntInclusive(80, 170) + 'px'
+  horizontalMargin = Randomization.getRandom([10, 45, 75]) + '%'
+  verticalMargin = Randomization.getRandomIntInclusive(20, 40) + 'px'
 
   logoUrls = [
     "url('https://logos-download.com/wp-content/uploads/2016/03/Rolex_logo.png')",
@@ -33,5 +24,6 @@ export class LogoComponent extends  BaseRandomizedComponent{
     "url('https://s1.logaster.com/static/v3/img/products/logo.png')",
     "url('https://argusdental.com/wp-content/uploads/2017/08/Master-Plan-Logo-PNG.png')",
   ]
-  randomLogo = this.getRandom(this.logoUrls)
+
+  randomLogo = Randomization.getRandom(this.logoUrls)
 }

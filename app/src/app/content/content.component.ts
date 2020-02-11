@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
-}
+import { Randomization } from "../utils";
 
 @Component({
   selector: 'app-content',
@@ -18,8 +13,8 @@ export class ContentComponent implements OnInit {
   }
 
   text = ''
-  wordSpacing = getRandomIntInclusive(3, 10) + 'px'
-  lineHeight = getRandomIntInclusive(17, 24) + 'px'
+  wordSpacing = Randomization.getRandomIntInclusive(3, 10) + 'px'
+  lineHeight = Randomization.getRandomIntInclusive(17, 24) + 'px'
 
   ngOnInit(): void {
     this.getValFromEndpoint('text', 'content')

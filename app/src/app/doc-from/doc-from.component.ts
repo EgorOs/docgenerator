@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BaseRandomizedComponent} from "../base-randomized/base-randomized.component";
+import {BaseRandomizedComponent } from "../base-randomized/base-randomized.component";
+import { Randomization } from "../utils";
 
 // function getRandomIntInclusive(min, max) {
 //   min = Math.ceil(min);
@@ -33,5 +34,5 @@ export class DocFromComponent extends BaseRandomizedComponent {
   }
 
   borderConf =  Math.random() > 0.5 ? '1px solid #000' : 'none'
-  
+
 }

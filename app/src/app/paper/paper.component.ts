@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {BaseRandomizedComponent} from "../base-randomized/base-randomized.component";
+import { BaseRandomizedComponent } from "../base-randomized/base-randomized.component";
+import { Randomization } from "../utils";
 
 @Component({
   selector: 'app-paper',
@@ -26,12 +27,12 @@ export class PaperComponent extends BaseRandomizedComponent{
     'Tahoma',
   ]
 
-  randomPaperBg = this.getRandom(this.paperBgUrls);
-  fontFamily = this.getRandom(this.fontList);
+  randomPaperBg = Randomization.getRandom(this.paperBgUrls);
+  fontFamily = Randomization.getRandom(this.fontList);
   textColor = "rgba(0,0,0,.8)";
   textShadow = "0 0 1px rgba(0,0,0," + Math.random() + ")";
   overlayColor = "rgba(255,255,255," + Math.random() + ")";
-  innerAreaVerticalPadding = this.getRandomIntInclusive(0, 50) + 'px';
-  innerAreaHorizontalPadding = this.getRandomIntInclusive(15, 25) + '%';
+  innerAreaVerticalPadding = Randomization.getRandomIntInclusive(0, 50) + 'px';
+  innerAreaHorizontalPadding = Randomization.getRandomIntInclusive(15, 25) + '%';
 
 }
