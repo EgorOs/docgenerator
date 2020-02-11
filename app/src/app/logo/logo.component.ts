@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {BaseRandomizedComponent} from "../base-randomized/base-randomized.component";
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -12,9 +13,7 @@ function getRandomIntInclusive(min, max) {
   styleUrls: ['./logo.component.sass']
 })
 
-export class LogoComponent implements OnInit {
-
-  constructor() { }
+export class LogoComponent extends  BaseRandomizedComponent{
 
   ngOnInit(): void {
   }

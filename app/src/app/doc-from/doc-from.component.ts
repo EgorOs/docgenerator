@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {BaseRandomizedComponent} from "../base-randomized/base-randomized.component";
 
 // function getRandomIntInclusive(min, max) {
 //   min = Math.ceil(min);
@@ -19,9 +19,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./doc-from.component.sass'],
   // styles: [random_style]
 })
-export class DocFromComponent implements OnInit {
+export class DocFromComponent extends BaseRandomizedComponent {
 
-  constructor(private http: HttpClient) { }
+
   fromName = ''
   toName = ''
   address = ''
@@ -33,12 +33,5 @@ export class DocFromComponent implements OnInit {
   }
 
   borderConf =  Math.random() > 0.5 ? '1px solid #000' : 'none'
-
-  getValFromEndpoint(variable, endpoint): void {
-    this.http.get('http://127.0.0.1:3000/' + endpoint).subscribe((data:any) => {
-      this[variable] = data[0].value
-    }, error => {
-      console.log("There was an error:", error);
-    });
-  }
+  
 }

@@ -11,6 +11,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ContentComponent } from './content/content.component';
 import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { BaseRandomizedComponentComponent } from './base-randomized-component/base-randomized-component.component';
+import { BaseRandomizedComponent } from './base-randomized/base-randomized.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {FormsModule} from "@angular/forms";
     LogoComponent,
     DocFromComponent,
     ContactComponent,
-    ContentComponent
+    ContentComponent,
+    BaseRandomizedComponentComponent,
+    BaseRandomizedComponent
   ],
   imports: [
     BrowserModule,

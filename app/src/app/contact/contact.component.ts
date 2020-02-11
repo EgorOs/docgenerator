@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { BaseRandomizedComponent } from "../base-randomized/base-randomized.component";
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.sass']
 })
-export class ContactComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+export class ContactComponent extends BaseRandomizedComponent {
+
     name = ''
     address = ''
     phoneNum = ''
@@ -22,14 +22,4 @@ export class ContactComponent implements OnInit {
     this.getValFromEndpoint('faxNum', 'fax')
     this.getValFromEndpoint('emailAddr', 'email')
   }
-
-  getValFromEndpoint(variable, endpoint): void {
-    this.http.get('http://127.0.0.1:3000/' + endpoint).subscribe((data:any) => {
-      console.log(this)
-      this[variable] = data[0].value
-    }, error => {
-      console.log("There was an error:", error);
-    });
-  }
-
 }

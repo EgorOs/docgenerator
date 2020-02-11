@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {BaseRandomizedComponent} from "../base-randomized/base-randomized.component";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass'],
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
+export class HeaderComponent extends BaseRandomizedComponent {
 
   ngOnInit(): void {
   }
