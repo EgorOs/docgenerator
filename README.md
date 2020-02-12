@@ -1,2 +1,5 @@
-# Docker
-[Example how to run Angular app](https://mherman.org/blog/dockerizing-an-angular-app/)
+## Follow instructions in
+
+1. Server
+2. App
+3. Dataset
