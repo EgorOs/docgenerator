@@ -18,7 +18,6 @@ export class PaperComponent extends BaseRandomizedComponent{
   paperBgUrls = [
     "url('https://images.unsplash.com/photo-1566041510632-30055e21a9cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9')",
     "url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_NF1bGCj1mSbTfuuh2408tjJU7qnlOdOc09hMzIm22TT05kD6')",
-    "url('https://imjustcreative.com/wp-content/uploads/ImJustCreative-2010-08-23-at-06.49.36.jpg')",
   ];
   fontList = [
     'Arial',

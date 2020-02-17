@@ -29,32 +29,32 @@ export class AppComponent {
   }
 
   highlightLabels() {
-    const content = document.getElementsByTagName("app-content")[0];
+    const content = <HTMLElement>document.getElementsByTagName("app-content")[0];
     content.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "p")[0].style.background = 'blue';
     this.hideText(content);
 
-    const docfrom = document.getElementsByTagName("app-doc-from")[0];
+    const docfrom = <HTMLElement>document.getElementsByTagName("app-doc-from")[0];
     docfrom.style.background = 'green';
     this.hideText(docfrom);
 
-    const contact = document.getElementsByTagName("app-contact")[0];
+    const contact = <HTMLElement> document.getElementsByTagName("app-contact")[0];
     contact.style.background = 'hsl(180, 50%, 50%)';
     this.hideText(contact);
 
-    const logo = document.getElementsByTagName("app-logo")[0];
+    const logo = <HTMLElement> document.getElementsByTagName("app-logo")[0];
     logo.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "div")[0].style.background = 'hsl(120, 50%, 50%)';
   }
 
   removeHighlight() {
-    const content = document.getElementsByTagName("app-content")[0];
+    const content = <HTMLElement> document.getElementsByTagName("app-content")[0];
     content.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "p")[0].style.background = 'none';
     this.showText(content);
 
-    const docfrom = document.getElementsByTagName("app-doc-from")[0];
+    const docfrom = <HTMLElement> document.getElementsByTagName("app-doc-from")[0];
     docfrom.style.background = 'none';
     this.showText(docfrom);
 
-    const contact = document.getElementsByTagName("app-contact")[0];
+    const contact = <HTMLElement> document.getElementsByTagName("app-contact")[0];
     contact.style.background = 'none';
     this.showText(contact);
   }
