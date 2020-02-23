@@ -4,14 +4,38 @@
   }
 </style>
 
-<div id="contact">
-  <ul>
-    <li>{{ name }}</li>
-    <li>{{ address }}</li>
-  </ul>
-  <ul>
-    <li>Telefon: {{ phoneNum }}</li>
-    <li>Telefax: {{ faxNum }}</li>
-    <li>{{ emailAddr }}</li>
-  </ul>
+
+<div *ngTemplateOutlet="this.random.getRandom([contact1, contact2])">
+
 </div>
+
+<ng-template #contact1>
+
+  <div id="contact">
+    <ul>
+      <li>{{ name }}</li>
+      <li>{{ address }}</li>
+    </ul>
+    <ul>
+      <li>Telefon: {{ phoneNum }}</li>
+      <li>Telefax: {{ faxNum }}</li>
+      <li>{{ emailAddr }}</li>
+    </ul>
+  </div>
+</ng-template>
+
+
+<ng-template #contact2>
+
+  <div id="contact">
+    <ul>
+      <li>{{ name }}</li>
+      <li>{{ address }}</li>
+    </ul>
+    <ul>
+      <li><b>Telefon:</b> {{ phoneNum }}</li>
+      <li><b>Telefax:</b> {{ faxNum }}</li>
+      <li>{{ emailAddr }}</li>
+    </ul>
+  </div>
+</ng-template>

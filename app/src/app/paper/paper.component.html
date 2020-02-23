@@ -1,24 +1,19 @@
 <div id="paper-wrapper"
-     random-interval-margin-left="10-200px"
-     random-interval-margin-top="100-200px"
-     random-interval-font-size="10-30pt"
+     random-list-font-family="Tahoma, Helvetica, Arial, Thames New Roman"
      [ngStyle]="{
       'background': overlayColor + ' ' + randomPaperBg,
-      'font-family': fontFamily,
-      'color': textColor,
       'text-shadow': textShadow,
       'background-size': 'cover',
       'background-blend-mode': 'overlay',
       'background-repeat': 'no-repeat',
       'overflow': 'hidden',
       'z-index': '-3',
-      'height': '100%'
+      'height': getPaperProportionalHeight() + 'px'
     }">
 
   <div id="inner"
        [ngStyle]="{
-        'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding,
-        'height': '100%'
+        'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
 
     <app-header>
@@ -26,5 +21,13 @@
     <app-content>
 
     </app-content>
-  </div>
+<!--    <div id="layout" [ngTemplateOutlet]="t2"></div>-->
+<!--  </div>-->
 </div>
+
+<ng-template #t1>
+  <div>1</div>
+</ng-template>
+<ng-template #t2>
+  <div>2</div>
+</ng-template>
