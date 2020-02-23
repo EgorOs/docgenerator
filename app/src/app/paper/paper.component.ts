@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BaseRandomizedComponent } from "../base-randomized/base-randomized.component";
-import { Randomization } from "../utils";
+import { Randomization, RandomizedCSSParser } from "../utils";
 
 @Component({
   selector: 'app-paper',
@@ -9,10 +9,6 @@ import { Randomization } from "../utils";
 })
 export class PaperComponent extends BaseRandomizedComponent{
 
-
-
-  ngOnInit(): void {
-  }
   title = 'app';
 
   paperBgUrls = [

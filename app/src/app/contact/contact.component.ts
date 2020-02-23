@@ -15,7 +15,7 @@ export class ContactComponent extends BaseRandomizedComponent {
     faxNum = ''
     emailAddr = ''
 
-  ngOnInit(): void {
+  initFollowup(): void {
     this.getValFromEndpoint('phoneNum', 'phone')
     this.getValFromEndpoint('address', 'address')
     this.getValFromEndpoint('name', 'name')
