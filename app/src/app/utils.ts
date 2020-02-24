@@ -66,8 +66,8 @@ export const RandomizedCSSParser = {
 
   renderRandomizedStyleRecursively(el: HTMLElement) {
     this.renderRandomizedStyle(el);
-    for (const elem in el.children) {
-        this.renderRandomizedStyleRecursively(elem);
+    for (let i = 0; i < el.childElementCount; i++) {
+        this.renderRandomizedStyleRecursively(el.children[i]);
     }
   }
 };

@@ -32,8 +32,10 @@ export class BaseRandomizedComponent implements OnInit {
   }
 
   randomizeChildren(children: Array<HTMLElement>) {
-    for (let el of children) {
-      RandomizedCSSParser.renderRandomizedStyleRecursively(el);
+    window.onload = (event) => {
+      for (let el of children) {
+        RandomizedCSSParser.renderRandomizedStyleRecursively(el);
+      }
     }
   }
 }

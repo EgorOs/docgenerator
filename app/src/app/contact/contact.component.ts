@@ -5,7 +5,6 @@ import { Randomization } from "../utils";
 
 @Component({
   selector: 'app-contact',
-  // templateUrl: Randomization.getRandom(['./contact.component.html', './templates/temp.html']),
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.sass']
 }

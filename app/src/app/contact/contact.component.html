@@ -4,15 +4,14 @@
   }
 </style>
 
-
-<div *ngTemplateOutlet="this.random.getRandom([contact1, contact2])">
-
+<div >
+  <div *appRandomTemplate="[contact1, contact2, contact3]"></div>
 </div>
 
 <ng-template #contact1>
 
   <div id="contact">
-    <ul>
+    <ul random-interval-font-size="20:25pt">
       <li>{{ name }}</li>
       <li>{{ address }}</li>
     </ul>
@@ -25,14 +24,28 @@
 </ng-template>
 
 
-<ng-template #contact2>
-
+<ng-template  #contact2>
   <div id="contact">
-    <ul>
+    <ul random-interval-font-size="20:25pt">
       <li>{{ name }}</li>
       <li>{{ address }}</li>
     </ul>
-    <ul>
+    <ul random-interval-font-size="12:16pt">
+      <li><b>Telefon:</b> {{ phoneNum }}</li>
+      <li><b>Telefax:</b> {{ faxNum }}</li>
+      <li>{{ emailAddr }}</li>
+    </ul>
+  </div>
+</ng-template>
+
+
+<ng-template  #contact3>
+  <div id="contact">
+    <ul random-interval-font-size="20:25pt" random-list-color="green, blue, red">
+      <li>{{ name }}</li>
+      <li>{{ address }}</li>
+    </ul>
+    <ul random-interval-font-size="12:16pt">
       <li><b>Telefon:</b> {{ phoneNum }}</li>
       <li><b>Telefax:</b> {{ faxNum }}</li>
       <li>{{ emailAddr }}</li>
