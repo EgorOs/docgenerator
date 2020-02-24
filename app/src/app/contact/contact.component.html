@@ -11,7 +11,7 @@
 <ng-template #contact1>
 
   <div id="contact">
-    <ul random-interval-font-size="20:25pt">
+    <ul random-interval-font-size="14:18pt">
       <li>{{ name }}</li>
       <li>{{ address }}</li>
     </ul>
@@ -26,7 +26,7 @@
 
 <ng-template  #contact2>
   <div id="contact">
-    <ul random-interval-font-size="20:25pt">
+    <ul random-interval-font-size="16:18pt">
       <li>{{ name }}</li>
       <li>{{ address }}</li>
     </ul>
@@ -37,18 +37,14 @@
     </ul>
   </div>
 </ng-template>
-
 
 <ng-template  #contact3>
   <div id="contact">
-    <ul random-interval-font-size="20:25pt" random-list-color="green, blue, red">
+    <ul random-interval-font-size="12:14pt">
       <li>{{ name }}</li>
-      <li>{{ address }}</li>
-    </ul>
-    <ul random-interval-font-size="12:16pt">
-      <li><b>Telefon:</b> {{ phoneNum }}</li>
-      <li><b>Telefax:</b> {{ faxNum }}</li>
-      <li>{{ emailAddr }}</li>
+      <li>{{ address.split(',')[0] }},</li>
+      <li>{{ address.split(',')[1] }}</li>
     </ul>
   </div>
 </ng-template>
+

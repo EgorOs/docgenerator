@@ -15,19 +15,79 @@
        [ngStyle]="{
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
-
-    <app-header>
-    </app-header>
-    <app-content>
-
-    </app-content>
-<!--    <div id="layout" [ngTemplateOutlet]="t2"></div>-->
-<!--  </div>-->
+  <div *appRandomTemplate="[akte_01, classic]"></div>
+<!--    <div *appRandomTemplate="[akte_01]"></div>-->
+  </div>
 </div>
 
-<ng-template #t1>
-  <div>1</div>
+
+<ng-template #classic>
+  <app-header>
+  </app-header>
+  <app-content>
+  </app-content>
 </ng-template>
-<ng-template #t2>
-  <div>2</div>
+
+
+<ng-template  #akte_01>
+  <div appRandomRender>
+    <app-contact
+      random-interval-margin-right="0:50%"
+      random-interval-margin-top="40:60px"
+    >
+    </app-contact>
+
+
+    <app-contact
+      random-list-float="left"
+      random-interval-margin-top="260:310px"
+    >
+    </app-contact>
+
+    <div
+      style="display: flex; justify-content: space-around; width: 100%;"
+      random-interval-padding-top="150:230px"
+      random-interval-padding-bottom="150:230px"
+    >
+      <div>Steuernummer</div>
+      <div>Unser Zeichen</div>
+      <div style="display: flex; justify-content: space-around; width: 50%; flex-wrap: wrap">
+        <div style="width: 50%">Sachverständiger/DW Seiten</div>
+        <div style="width: 50%; text-align: right">Datum</div>
+        <div style="width: 100%; border-bottom: solid 1px #000; padding-top: 10px; text-align: center">
+          {{ random.getRandomIntInclusive(1, 30)}}
+        </div>
+      </div>
+    </div>
+
+    <div
+      random-list-font-weight="600, 800"
+      random-list-text-transform="capitalize, uppercase"
+      random-list-text-align="left, center"
+      random-interval-font-size="16:25pt"
+      random-interval-padding-bottom="90:140px"
+    >
+      Rechnung
+    </div>
+
+    <div style="width: 300px"
+         random-interval-padding-bottom="90:140px"
+    >
+      <div>Gutachten Nr..</div>
+      <div>Rechnungs-Nr..</div>
+      <div style="float: left">Siete:</div>
+      <div style="float: right">1 von 1</div>
+      <div style="float: left; clear: left">Datum</div>
+      <div style="float: right; clear: right">|NotRandomYet|</div>
+    </div>
+
+<!--    <div>-->
+<!--      Für meine am |NotRandomYet| in Auftrag gegebene-->
+<!--    </div>-->
+
+
+
+    <app-content random-list-text-align="left, justify">
+    </app-content>
+  </div>
 </ng-template>

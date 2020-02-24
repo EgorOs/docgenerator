@@ -24,7 +24,6 @@ export class BaseRandomizedComponent implements OnInit {
 
   getValFromEndpoint(variable, endpoint): void {
     this.http.get('http://127.0.0.1:3000/' + endpoint).subscribe((data:any) => {
-      console.log(this)
       this[variable] = data[0].value
     }, error => {
       console.log("There was an error:", error);
@@ -36,6 +35,6 @@ export class BaseRandomizedComponent implements OnInit {
       for (let el of children) {
         RandomizedCSSParser.renderRandomizedStyleRecursively(el);
       }
-    }
+    };
   }
 }
