@@ -1,9 +1,7 @@
 import os
 from pathlib import Path
-import json
 import csv
 from math import ceil
-import logging
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -18,12 +16,12 @@ class DocumentGenerator:
         self.tokens_coord = Path(dataset_path) / "coordinates"
 
     def _generate_single(
-        self,
-        filename,
-        url="http://localhost:4200",
-        window_width=1920,
-        window_height=1080,
-        scale_factor=1.5,
+            self,
+            filename,
+            url="http://localhost:4200",
+            window_width=1920,
+            window_height=1080,
+            scale_factor=1.5,
     ):
         self.driver.get(url)
         self.driver.set_window_size(
@@ -42,44 +40,35 @@ class DocumentGenerator:
         os.makedirs(str(self.mask_path), exist_ok=True)
         os.makedirs(str(self.tokens_coord), exist_ok=True)  # make dir for file with coordinates for tokens
 
-    def _find_tokens_coordinates(self):
+    def _get_tokens_info(self):
         elements = self.driver.find_elements_by_class_name("token")
-        dirty_coordinates = [
-            [
-                sum(elem)
-                for elem in zip(element.location.values(), element.size.values())
-            ]
-            for element in elements
+        tokens_info = [
+            [0] * len(elements),
+            [element.text for element in elements],
+            [element.location['x'] for element in elements],
+            [element.location['y'] for element in elements],
+            [ceil(element.size['width']) for element in elements],
+            [ceil(element.size['height']) for element in elements],
+            ['O'] * len(elements)
         ]
-        for i in range(len(dirty_coordinates)):
-            dirty_coordinates[i] = list(map(ceil, dirty_coordinates[i]))
-        return dirty_coordinates
+        list_transform = list(map(list, zip(*tokens_info)))  # transposed list
+        return list_transform
 
-    def _save_coordinates_to_file(self, file_name="coordinates", ext="csv"):
-        """Saves coordinates to JSON or CSV file"""
-        if ext == "json":
-            with open(
-                self.tokens_coord / ".".format(file_name, ext), "w", encoding="utf-8"
-            ) as result:
-                json.dump(self._find_tokens_coordinates(), result)
-        elif ext == "csv":
-            with open(
-                self.tokens_coord / ".".format(file_name, ext),
-                "w",
-                newline="",
-            ) as result:
-                writer = csv.writer(result, delimiter=",")
-                writer.writerows(self._find_tokens_coordinates())
-        else:
-            logging.error("Unsupported extension")
+    def _save_coordinates_to_file(self, file_name="coordinates"):
+        """Saves coordinates to CSV file"""
+        fieldnames = ['offset', 'word', 'x', 'y', 'width', 'height', 'label']
+        with open(self.tokens_coord / f'{file_name}.csv', "w", newline="") as result:
+            writer = csv.writer(result, delimiter=',')
+            writer.writerow(fieldnames)
+            writer.writerows(self._get_tokens_info())
 
     def generate(
-        self,
-        n_samples,
-        url="http://localhost:4200",
-        window_width=1920,
-        window_height=1080,
-        scale_factor=1.5,
+            self,
+            n_samples,
+            url="http://localhost:4200",
+            window_width=1920,
+            window_height=1080,
+            scale_factor=1.5,
     ):
         self._make_dirs()
         for idx in range(n_samples):
@@ -97,7 +86,7 @@ class DocumentGenerator:
 if __name__ == "__main__":
     chrome_options = Options()
     chrome_options.add_argument("--headless")
-    driver = webdriver.Firefox(
+    driver = webdriver.Chrome(
         executable_path=os.getcwd() + "/chromedriver", options=chrome_options
     )
 
