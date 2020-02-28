@@ -10,9 +10,12 @@
 </style>
 
 <div id="from" [ngStyle]="{'border': this.borderConf}">
-  <h3>{{ fromName }} | Pohlstrasse 55 | 40218 Düsseldorf</h3>
+  <h3> <span [innerHTML]="fromName | wrapWords"> </span>|
+    <span [innerHTML]="address.split(',')[0] | wrapWords"></span> |
+    <span [innerHTML]="address.split(',')[1] | wrapWords"></span>
+  </h3>
   <ul>
-    <li>{{ toName }}</li>
-    <li>{{ address }}</li>
+    <li [innerHTML]="toName | wrapWords"></li>
+    <li [innerHTML]="address | wrapWords"></li>
   </ul>
 </div>

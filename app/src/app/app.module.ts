@@ -13,6 +13,7 @@ import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { BaseRandomizedComponent } from './base-randomized/base-randomized.component';
 import {RandomRenderDirective, RandomTemplateDirective} from './random-template.directive';
+import { WrapWordsPipe } from './wrap-words.pipe';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import {RandomRenderDirective, RandomTemplateDirective} from './random-template.
         ContentComponent,
         BaseRandomizedComponent,
         RandomTemplateDirective,
-        RandomRenderDirective
+        RandomRenderDirective,
+        WrapWordsPipe
     ],
   imports: [
     BrowserModule,
