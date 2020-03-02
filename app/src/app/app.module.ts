@@ -14,6 +14,8 @@ import {FormsModule} from "@angular/forms";
 import { BaseRandomizedComponent } from './base-randomized/base-randomized.component';
 import {RandomRenderDirective, RandomTemplateDirective} from './random-template.directive';
 import { WrapWordsPipe } from './wrap-words.pipe';
+import { TextComponent } from './text/text.component';
+import { EntityComponent } from './entity/entity.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +29,9 @@ import { WrapWordsPipe } from './wrap-words.pipe';
         BaseRandomizedComponent,
         RandomTemplateDirective,
         RandomRenderDirective,
-        WrapWordsPipe
+        WrapWordsPipe,
+        TextComponent,
+        EntityComponent
     ],
   imports: [
     BrowserModule,

@@ -15,8 +15,8 @@
        [ngStyle]="{
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
-  <div *appRandomTemplate="[akte_01, classic]"></div>
-<!--    <div *appRandomTemplate="[akte_01]"></div>-->
+<!--  <div *appRandomTemplate="[akte_01, classic]"></div>-->
+    <div *appRandomTemplate="[akte_01]"></div>
   </div>
 </div>
 
@@ -68,7 +68,7 @@
       random-interval-font-size="16:25pt"
       random-interval-padding-bottom="90:140px"
     >
-      Rechnung
+      <app-text content="Rechnung"></app-text>
     </div>
 
     <div style="width: 300px"
@@ -79,12 +79,12 @@
       <div style="float: left">Siete:</div>
       <div style="float: right">1 von 1</div>
       <div style="float: left; clear: left">Datum</div>
-      <div style="float: right; clear: right">|NotRandomYet|</div>
+      <div style="float: right; clear: right"><app-entity endpoint="datetime"></app-entity></div>
     </div>
 
-<!--    <div>-->
-<!--      Für meine am |NotRandomYet| in Auftrag gegebene-->
-<!--    </div>-->
+    <div>
+      <app-text content="Für meine am |NotRandomYet| in Auftrag gegebene"></app-text>
+    </div>
 
 
     <app-content random-list-text-align="left, justify">
