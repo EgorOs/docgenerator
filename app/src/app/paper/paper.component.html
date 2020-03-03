@@ -15,8 +15,8 @@
        [ngStyle]="{
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
-  <div *appRandomTemplate="[akte_01, classic]"></div>
-<!--    <div *appRandomTemplate="[akte_01]"></div>-->
+<!--  <div *appRandomTemplate="[akte_01, classic]"></div>-->
+    <div *appRandomTemplate="[akte_01]"></div>
   </div>
 </div>
 
@@ -106,8 +106,76 @@
       </app-text>
     </div>
 
+    <div
+      random-interval-padding-top="50:90px"
+      random-interval-padding-bottom="50:90px"
+    >
+      <table>
+        <tr>
+          <th style="width: 20%">
+            <app-text content="Pos"></app-text>
+          </th>
+          <th style="width: 30%">
+            <app-text content="Beschreibung"></app-text>
+          </th>
+          <th style="width: 20%">
+            <app-text content="Menge"></app-text></th>
+          <th style="width: 20%">
+            <app-text content="Me"></app-text>
+          </th>
+          <th style="width: 30%">
+            <app-text content="Preis/Me"></app-text>
+          </th>
+        </tr>
+        <tr>
+          <td><app-text content="1"></app-text> </td>
+          <td><app-text content="Farhtkosten pro km"></app-text> </td>
+          <td><app-text content="84,00"></app-text> </td>
+          <td><app-text content="km"></app-text> </td>
+          <td><app-text content="0,95"></app-text> </td>
+        </tr>
+        <tr>
+          <td><app-text content="2"></app-text> </td>
+          <td><app-text content="Farjrtzeiten"></app-text> </td>
+          <td><app-text content="1,00"></app-text> </td>
+          <td><app-text content="Stunden"></app-text> </td>
+          <td><app-text content="95,00"></app-text> </td>
+        </tr>
+        <tr>
+          <td><app-text content="3"></app-text> </td>
+          <td><app-text content="Ortspesichtigung"></app-text> </td>
+          <td><app-text content="1,50"></app-text> </td>
+          <td><app-text content="Stunden"></app-text> </td>
+          <td><app-text content="125,00"></app-text> </td>
+        </tr>
+      </table>
+    </div>
 
-    <app-content random-list-text-align="left, justify">
-    </app-content>
+    <div style="width: 500px"
+         random-interval-padding-bottom="90:140px"
+         random-list-margin-left="0px, 500px"
+         random-interval-font-size="14:18pt"
+    >
+      <div style="float: left">
+        <app-text content="Nettobetrag: Mehrwetrsteuer"></app-text>
+      </div>
+      <div style="float: right">
+        <app-text content="362,30"></app-text>
+      </div>
+      <div style="float: left; clear: left">
+        <app-text content="19% Bruttobetrag"></app-text>
+      </div>
+      <div style="float: right; clear: right">
+        <app-text content="68,84"></app-text>
+      </div>
+      <div style="float: right; clear: right">
+        <app-text content="431,14"></app-text>
+      </div>
+    </div>
+
+    <hr>
+    <div random-list-margin-left="5%, 45%, 85%" style="padding-top: 10px">
+      <app-text content="Seite 1 von 1"></app-text>
+    </div>
   </div>
 </ng-template>
