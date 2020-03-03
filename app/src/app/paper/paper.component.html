@@ -49,14 +49,18 @@
       random-interval-padding-top="150:230px"
       random-interval-padding-bottom="150:230px"
     >
-      <div>Steuernummer</div>
-      <div>Unser Zeichen</div>
+      <div><app-text content="Steuernummer"></app-text></div>
+      <div><app-text content="Unser Zeichen"></app-text></div>
       <div style="display: flex; justify-content: space-around; width: 50%; flex-wrap: wrap">
-        <div style="width: 50%">Sachverständiger/DW Seiten</div>
-        <div style="width: 50%; text-align: right">Datum</div>
+        <div style="width: 50%">
+          <app-text content="Sachverständiger/DW Seiten"></app-text>
+        </div>
+        <div style="width: 50%; text-align: right">
+          <app-text content="Datum"></app-text>
+        </div>
         <div style="width: 100%; border-bottom: solid 1px #000; padding-top: 10px; text-align: center">
 <!--          {{ random.getRandomIntInclusive(1, 30)}}-->
-          1
+          <app-text content="1"></app-text>
         </div>
       </div>
     </div>
@@ -74,16 +78,32 @@
     <div style="width: 300px"
          random-interval-padding-bottom="90:140px"
     >
-      <div>Gutachten Nr..</div>
-      <div>Rechnungs-Nr..</div>
-      <div style="float: left">Siete:</div>
-      <div style="float: right">1 von 1</div>
-      <div style="float: left; clear: left">Datum</div>
-      <div style="float: right; clear: right"><app-entity endpoint="datetime"></app-entity></div>
+      <div>
+        <app-text content="Gutachten Nr.."></app-text>
+      </div>
+      <div>
+        <app-text content="Rechnungs-Nr.."></app-text>
+      </div>
+      <div style="float: left">
+        <app-text content="Siete:"></app-text>
+      </div>
+      <div style="float: right">
+        <app-text content="1 von 1"></app-text>
+      </div>
+      <div style="float: left; clear: left">
+        <app-text content="Datum"></app-text>
+      </div>
+      <div style="float: right; clear: right">
+        <app-entity endpoint="datetime"></app-entity>
+      </div>
     </div>
 
-    <div>
-      <app-text content="Für meine am |NotRandomYet| in Auftrag gegebene"></app-text>
+    <div random-interval-font-size="16:20pt">
+      <app-text content="Für meine am "></app-text>
+      <app-entity endpoint="datetime"></app-entity>
+      <app-text
+        content=" in Auftrag gegebene Gutachtertätigkeit, werden folgende Kosten in Rechnung gestellt:">
+      </app-text>
     </div>
 
 

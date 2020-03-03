@@ -12,13 +12,21 @@
 
   <div id="contact">
     <ul random-interval-font-size="14:18pt">
-      <li>{{ name }}</li>
-      <li>{{ address }}</li>
+      <li>
+        <app-entity endpoint="name"></app-entity>
+      </li>
+      <li>
+        <app-entity endpoint="address"></app-entity>
+      </li>
     </ul>
-    <ul>
-      <li>Telefon: {{ phoneNum }}</li>
-      <li>Telefax: {{ faxNum }}</li>
-      <li>{{ emailAddr }}</li>
+    <ul random-interval-font-size="12:16pt">
+      <li>
+        <app-text content="Telefon:"></app-text> <app-entity endpoint="phone"></app-entity>
+      </li>
+      <li>
+        <app-text content="Telefax:"></app-text> <app-entity endpoint="fax"></app-entity>
+      </li>
+      <li><app-entity endpoint="email"></app-entity></li>
     </ul>
   </div>
 </ng-template>
@@ -27,13 +35,21 @@
 <ng-template  #contact2>
   <div id="contact">
     <ul random-interval-font-size="16:18pt">
-      <li>{{ name }}</li>
-      <li>{{ address }}</li>
+      <li>
+        <app-entity endpoint="name"></app-entity>
+      </li>
+      <li>
+        <app-entity endpoint="address"></app-entity>
+      </li>
     </ul>
     <ul random-interval-font-size="12:16pt">
-      <li><b>Telefon:</b> {{ phoneNum }}</li>
-      <li><b>Telefax:</b> {{ faxNum }}</li>
-      <li>{{ emailAddr }}</li>
+      <li>
+        <b><app-text content="Telefon:"></app-text></b> <app-entity endpoint="phone"></app-entity>
+      </li>
+      <li>
+        <b><app-text content="Telefax:"></app-text></b> <app-entity endpoint="fax"></app-entity>
+      </li>
+      <li><app-entity endpoint="email"></app-entity></li>
     </ul>
   </div>
 </ng-template>
@@ -41,9 +57,12 @@
 <ng-template  #contact3>
   <div id="contact">
     <ul random-interval-font-size="12:14pt">
-      <li>{{ name }}</li>
-      <li>{{ address.split(',')[0] }},</li>
-      <li>{{ address.split(',')[1] }}</li>
+      <li>
+        <app-entity endpoint="name"></app-entity>
+      </li>
+      <li>
+        <app-entity endpoint="address"></app-entity>
+      </li>
     </ul>
   </div>
 </ng-template>
