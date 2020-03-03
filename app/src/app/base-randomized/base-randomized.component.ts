@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { RandomizedCSSParser } from '../utils';
+import { Randomization } from "../utils";
 
 
 @Component({
@@ -9,17 +11,30 @@ import { HttpClient } from "@angular/common/http";
 })
 export class BaseRandomizedComponent implements OnInit {
 
-  constructor(public http: HttpClient) { }
+  constructor(public elem: ElementRef, public http: HttpClient) {}
+
+  random = Randomization;
 
   ngOnInit(): void {
+    this.initFollowup();
+    this.randomizeChildren(this.elem.nativeElement.children);
   }
+
+  initFollowup(): void {}
 
   getValFromEndpoint(variable, endpoint): void {
     this.http.get('http://127.0.0.1:3000/' + endpoint).subscribe((data:any) => {
-      console.log(this)
       this[variable] = data[0].value
     }, error => {
       console.log("There was an error:", error);
     });
+  }
+
+  randomizeChildren(children: Array<HTMLElement>) {
+    window.onload = (event) => {
+      for (let el of children) {
+        RandomizedCSSParser.renderRandomizedStyleRecursively(el);
+      }
+    };
   }
 }

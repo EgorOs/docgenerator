@@ -1,27 +1,113 @@
 <div id="paper-wrapper"
+     random-list-font-family="Tahoma, Helvetica, Arial, Thames New Roman"
      [ngStyle]="{
       'background': overlayColor + ' ' + randomPaperBg,
-      'font-family': fontFamily,
-      'color': textColor,
       'text-shadow': textShadow,
       'background-size': 'cover',
       'background-blend-mode': 'overlay',
       'background-repeat': 'no-repeat',
       'overflow': 'hidden',
       'z-index': '-3',
-      'height': '100%'
+      'height': getPaperProportionalHeight() + 'px'
     }">
 
   <div id="inner"
        [ngStyle]="{
-        'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding,
-        'height': '100%'
+        'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
-
-    <app-header>
-    </app-header>
-    <app-content>
-
-    </app-content>
+  <div *appRandomTemplate="[akte_01, classic]"></div>
+<!--    <div *appRandomTemplate="[akte_01]"></div>-->
   </div>
 </div>
+
+
+<ng-template #classic>
+  <app-header>
+  </app-header>
+  <app-content>
+  </app-content>
+</ng-template>
+
+
+<ng-template  #akte_01>
+  <div appRandomRender>
+    <app-contact
+      random-interval-margin-right="0:50%"
+      random-interval-margin-top="40:60px"
+    >
+    </app-contact>
+
+
+    <app-contact
+      random-list-float="left"
+      random-interval-margin-top="260:310px"
+    >
+    </app-contact>
+
+    <div
+      style="display: flex; justify-content: space-around; width: 100%;"
+      random-interval-padding-top="150:230px"
+      random-interval-padding-bottom="150:230px"
+    >
+      <div><app-text content="Steuernummer"></app-text></div>
+      <div><app-text content="Unser Zeichen"></app-text></div>
+      <div style="display: flex; justify-content: space-around; width: 50%; flex-wrap: wrap">
+        <div style="width: 50%">
+          <app-text content="Sachverständiger/DW Seiten"></app-text>
+        </div>
+        <div style="width: 50%; text-align: right">
+          <app-text content="Datum"></app-text>
+        </div>
+        <div style="width: 100%; border-bottom: solid 1px #000; padding-top: 10px; text-align: center">
+<!--          {{ random.getRandomIntInclusive(1, 30)}}-->
+          <app-text content="1"></app-text>
+        </div>
+      </div>
+    </div>
+
+    <div
+      random-list-font-weight="600, 800"
+      random-list-text-transform="capitalize, uppercase"
+      random-list-text-align="left, center"
+      random-interval-font-size="16:25pt"
+      random-interval-padding-bottom="90:140px"
+    >
+      <app-text content="Rechnung"></app-text>
+    </div>
+
+    <div style="width: 300px"
+         random-interval-padding-bottom="90:140px"
+    >
+      <div>
+        <app-text content="Gutachten Nr.."></app-text>
+      </div>
+      <div>
+        <app-text content="Rechnungs-Nr.."></app-text>
+      </div>
+      <div style="float: left">
+        <app-text content="Siete:"></app-text>
+      </div>
+      <div style="float: right">
+        <app-text content="1 von 1"></app-text>
+      </div>
+      <div style="float: left; clear: left">
+        <app-text content="Datum"></app-text>
+      </div>
+      <div style="float: right; clear: right">
+        <app-entity endpoint="datetime"></app-entity>
+      </div>
+    </div>
+
+    <div random-interval-font-size="16:20pt">
+      <app-text content="Für meine am "></app-text>
+      <app-entity endpoint="datetime"></app-entity>
+      <app-text
+        content=" in Auftrag gegebene Gutachtertätigkeit, werden folgende Kosten in Rechnung gestellt:">
+      </app-text>
+    </div>
+
+
+    <app-content random-list-text-align="left, justify">
+    </app-content>
+  </div>
+</ng-template>

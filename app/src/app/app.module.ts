@@ -12,18 +12,27 @@ import { ContentComponent } from './content/content.component';
 import { HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { BaseRandomizedComponent } from './base-randomized/base-randomized.component';
+import {RandomRenderDirective, RandomTemplateDirective} from './random-template.directive';
+import { WrapWordsPipe } from './wrap-words.pipe';
+import { TextComponent } from './text/text.component';
+import { EntityComponent } from './entity/entity.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    PaperComponent,
-    LogoComponent,
-    DocFromComponent,
-    ContactComponent,
-    ContentComponent,
-    BaseRandomizedComponent
-  ],
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        PaperComponent,
+        LogoComponent,
+        DocFromComponent,
+        ContactComponent,
+        ContentComponent,
+        BaseRandomizedComponent,
+        RandomTemplateDirective,
+        RandomRenderDirective,
+        WrapWordsPipe,
+        TextComponent,
+        EntityComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
