@@ -37,10 +37,13 @@ def upload_data():
         logging.info: info about successful complete
     """
     db_values = {
-        'NatürlichePersonen': 'legalname',
-        'JuristischePersonen': 'name',
+        'NatürlichePersonen': 'naturname',
+        'JuristischePersonen': 'jurname',
         'DocDueDate': 'datetime',
         'DocDate': 'datetime',
+        'DocTypeComm': 'doctypecomm',
+        'DocTitle': 'doctitle',
+        'DocInvolvedParty': 'docinvolvedparty',
     }
     collection = connect_to_db()
     for file in get_full_path_to_documents():
@@ -51,14 +54,17 @@ def upload_data():
             if main_key == 'Tags.contents':
                 data.append(
                     {'type': 'content',
-                     'value': doc[main_key]
+                     'value': doc[main_key],
+                     'document': file,
                      })
             if main_key == 'tags':
                 for key in doc[main_key]:
                     if key['type'] in db_values:
                         data.append({
                             'type': db_values[key['type']],
-                            'value': key['mainForm']
+                            'value': key['mainForm'],
+                            'document': file.rpartition('/')[-1],
+                            'originalType': key['type']
                         })
         result = collection.insert_many(data)
         logging.info(f'Uploaded successfully, inserted_ids : {result.inserted_ids}')
