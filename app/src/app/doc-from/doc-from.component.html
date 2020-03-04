@@ -10,12 +10,12 @@
 </style>
 
 <div id="from" [ngStyle]="{'border': this.borderConf}">
-  <h3> <span [innerHTML]="fromName | wrapWords"> </span>|
-    <span [innerHTML]="address.split(',')[0] | wrapWords"></span> |
-    <span [innerHTML]="address.split(',')[1] | wrapWords"></span>
+  <h3> <span [innerHTML]="fromName | wrapWords: 'naturname'"> </span>|
+    <span [innerHTML]="address.split(',')[0] | wrapWords: 'address'"></span> |
+    <span [innerHTML]="address.split(',')[1] | wrapWords: 'address'"></span>
   </h3>
   <ul>
-    <li [innerHTML]="toName | wrapWords"></li>
-    <li [innerHTML]="address | wrapWords"></li>
+    <li [innerHTML]="toName | wrapWords: 'naturname'"></li>
+    <li [innerHTML]="address | wrapWords: 'address'"></li>
   </ul>
 </div>
