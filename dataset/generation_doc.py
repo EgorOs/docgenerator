@@ -33,7 +33,7 @@ class DocumentGenerator:
         body_element = self.driver.find_element_by_tag_name("body")
         body_element.click()
         self.driver.save_screenshot(str(self.mask_path / filename))
-        self._save_coordinates_to_file()
+        self._save_coordinates_to_file(f'coordinates_{filename.split(".")[0]}')
 
     def _make_dirs(self):
         os.makedirs(str(self.data_path), exist_ok=True)
