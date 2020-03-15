@@ -15,8 +15,8 @@
        [ngStyle]="{
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
-  <div *appRandomTemplate="[akte_01, classic]"></div>
-<!--    <div *appRandomTemplate="[akte_01]"></div>-->
+<!--  <div *appRandomTemplate="[akte_01, classic]"></div>-->
+    <div *appRandomTemplate="[akte_01]"></div>
   </div>
 </div>
 
@@ -31,14 +31,14 @@
 
 <ng-template  #akte_01>
   <div appRandomRender>
-    <app-contact
+    <app-contact class="reference_from"
       random-interval-margin-right="0:50%"
       random-interval-margin-top="40:60px"
     >
     </app-contact>
 
 
-    <app-contact
+    <app-contact class="reference_to"
       random-list-float="left"
       random-interval-margin-top="260:310px"
     >

@@ -39,7 +39,7 @@ class DocumentGenerator:
         self.driver.save_screenshot(str(self.data_path / filename))
         self._save_coordinates_to_file(f'coordinates_{filename.split(".")[0]}', scale_factor)
 
-        areas = ['body', 'reference-from', 'reference-to']
+        areas = ["body", "briefpost_header", "email_header", "doc_info", "footer", "logo", "reference_to", "reference_from", "signature", "email", "fax", "briefpost"]
         self._save_areas_to_json(f'areas_{filename.split(".")[0]}', areas, scale_factor)
 
     def _make_dirs(self):
