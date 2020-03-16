@@ -116,7 +116,7 @@ class DocumentGenerator:
     def create_areas_dict(self, file_name, scale_factor):
         output = dict()
         page_size = self.driver.get_window_size()
-        output['class'] = 'NO_CLASS'
+        output['class'] = 'none'
         output['pageSizes'] = [{
             'pw': page_size['width'],
             'ph': page_size['height'],
