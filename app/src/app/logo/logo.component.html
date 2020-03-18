@@ -1,11 +1,18 @@
-<div id="logo" [ngStyle]="{
-  'width': logoWidth,
-  'height': logoHeight,
-  'margin-left': horizontalMargin,
-  'margin-top': verticalMargin,
-  'margin-bottom': verticalMargin,
-  'background': randomLogo,
-  'background-position': 'center',
-  'background-size': 'contain',
-  'background-repeat': 'no-repeat'
-}"></div>
+<div *appRandomTemplate="[logo, nologo]">
+
+</div>
+
+<ng-template #logo>
+  <div class="logo" [ngStyle]="{
+    'width': '100%',
+    'background': randomLogo,
+    'background-position': 'center',
+    'background-size': 'contain',
+    'background-repeat': 'no-repeat'
+  }"
+       random-interval-margin-bottom="15:50px"
+       random-interval-height="80:200px"
+  ></div>
+</ng-template>
+
+<ng-template #nologo></ng-template>

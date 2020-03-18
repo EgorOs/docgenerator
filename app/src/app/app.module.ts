@@ -16,6 +16,7 @@ import {RandomRenderDirective, RandomTemplateDirective} from './random-template.
 import { WrapWordsPipe } from './wrap-words.pipe';
 import { TextComponent } from './text/text.component';
 import { EntityComponent } from './entity/entity.component';
+import { RandomImageComponent } from './random-image/random-image.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { EntityComponent } from './entity/entity.component';
         RandomRenderDirective,
         WrapWordsPipe,
         TextComponent,
-        EntityComponent
+        EntityComponent,
+        RandomImageComponent
     ],
   imports: [
     BrowserModule,
