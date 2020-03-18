@@ -1,5 +1,5 @@
 <div id="paper-wrapper"
-     random-list-font-family="Tahoma, Helvetica, Arial, Thames New Roman"
+     random-list-font-family="Tahoma, Helvetica, Arial, Times New Roman"
      [ngStyle]="{
       'background': overlayColor + ' ' + randomPaperBg,
       'text-shadow': textShadow,
@@ -15,9 +15,9 @@
        [ngStyle]="{
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }">
-  <div *appRandomTemplate="[akte_01, classic]"></div>
-<!--    <div *appRandomTemplate="[akte_01]"></div>-->
-  </div>
+
+  <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01]"></div>
+<!--    <div *appRandomTemplate="[akte_06__153]"></div>-->
 </div>
 
 
@@ -31,14 +31,14 @@
 
 <ng-template  #akte_01>
   <div appRandomRender>
-    <app-contact
+    <app-contact class="reference_from"
       random-interval-margin-right="0:50%"
       random-interval-margin-top="40:60px"
     >
     </app-contact>
 
 
-    <app-contact
+    <app-contact class="reference_to"
       random-list-float="left"
       random-interval-margin-top="260:310px"
     >
@@ -106,8 +106,442 @@
       </app-text>
     </div>
 
+    <div
+      random-interval-padding-top="50:90px"
+      random-interval-padding-bottom="50:90px"
+    >
+      <table>
+        <tr>
+          <th style="width: 20%">
+            <app-text content="Pos"></app-text>
+          </th>
+          <th style="width: 30%">
+            <app-text content="Beschreibung"></app-text>
+          </th>
+          <th style="width: 20%">
+            <app-text content="Menge"></app-text></th>
+          <th style="width: 20%">
+            <app-text content="Me"></app-text>
+          </th>
+          <th style="width: 30%">
+            <app-text content="Preis/Me"></app-text>
+          </th>
+        </tr>
+        <tr>
+          <td><app-text content="1"></app-text> </td>
+          <td><app-text content="Farhtkosten pro km"></app-text> </td>
+          <td><app-text content="84,00"></app-text> </td>
+          <td><app-text content="km"></app-text> </td>
+          <td><app-text content="0,95"></app-text> </td>
+        </tr>
+        <tr>
+          <td><app-text content="2"></app-text> </td>
+          <td><app-text content="Farjrtzeiten"></app-text> </td>
+          <td><app-text content="1,00"></app-text> </td>
+          <td><app-text content="Stunden"></app-text> </td>
+          <td><app-text content="95,00"></app-text> </td>
+        </tr>
+        <tr>
+          <td><app-text content="3"></app-text> </td>
+          <td><app-text content="Ortspesichtigung"></app-text> </td>
+          <td><app-text content="1,50"></app-text> </td>
+          <td><app-text content="Stunden"></app-text> </td>
+          <td><app-text content="125,00"></app-text> </td>
+        </tr>
+      </table>
+    </div>
 
-    <app-content random-list-text-align="left, justify">
-    </app-content>
+    <div style="width: 500px"
+         random-interval-padding-bottom="90:140px"
+         random-list-margin-left="0px, 500px"
+         random-interval-font-size="14:18pt"
+    >
+      <div style="float: left">
+        <app-text content="Nettobetrag: Mehrwetrsteuer"></app-text>
+      </div>
+      <div style="float: right">
+        <app-text content="362,30"></app-text>
+      </div>
+      <div style="float: left; clear: left">
+        <app-text content="19% Bruttobetrag"></app-text>
+      </div>
+      <div style="float: right; clear: right">
+        <app-text content="68,84"></app-text>
+      </div>
+      <div style="float: right; clear: right">
+        <app-text content="431,14"></app-text>
+      </div>
+    </div>
+
+    <hr>
+    <div random-list-margin-left="5%, 45%, 85%" style="padding-top: 10px">
+      <app-text content="Seite 1 von 1"></app-text>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template  #akte_06__152>
+  <div appRandomRender>
+
+    <!-- Random signature -->
+    <div
+      style="position: absolute"
+      random-interval-width="20:40%"
+      random-list-opacity="0.3, 0.5, 0.7"
+      random-list-transform="rotate(0deg), rotate(15deg), rotate(-15deg), "
+      random-interval-top="10:70vh"
+      random-interval-left="10:60%"
+    >
+      <app-random-image srcDir="signatures" count="4"></app-random-image>
+    </div>
+
+    <div
+      style="display: flex; justify-content: space-around; width: 100%;"
+      random-interval-padding-bottom="150:230px"
+      random-interval-margin-top="150:230px"
+    >
+      <app-contact class="reference_to">
+      </app-contact>
+      <div style="display: flex; justify-content: space-around; width: 50%; flex-wrap: wrap">
+        <div style="width: 50%; text-align: center"
+             random-list-font-weight="600, 800"
+        >
+          <app-logo></app-logo>
+          <app-text content="RecMiungs Datum "></app-text> <!-- Google translate says "RecHnungsDatum" correct, not this version -->
+          <app-entity endpoint="datetime"></app-entity>
+        </div>
+      </div>
+    </div>
+    <div class="body">
+      <div
+        random-list-font-weight="600, 800"
+        random-list-text-transform="capitalize, uppercase"
+        random-list-text-align="left, center"
+        random-interval-font-size="16:35pt"
+        random-interval-padding-bottom="90:140px"
+      >
+        <app-text content="Rechnung / Lieferechein"></app-text>
+      </div>
+
+      <div style="width: 300px"
+           random-interval-padding-bottom="90:140px"
+      >
+      </div>
+
+      <div
+        random-interval-padding-top="50:90px"
+        random-interval-padding-bottom="50:90px"
+      >
+        <table rules="none" border="0" cellpadding="0" cellspacing="0">
+          <tr style="border-bottom: 1px solid #000">
+            <th style="width: 10%;  border: 0">
+              <app-text content="MengtBezeichnung(Stück)"></app-text>
+            </th>
+            <th style="width: 40%;  border: 0">
+              <app-text content="Bezeichnung"></app-text>
+            </th>
+            <th style="width: 20%; border: 0">
+              <app-text content="Einzel(Netto)"></app-text>
+            </th>
+            <th style="width: 20%; border: 0">
+              <app-text content="Gesamt(Netto)"></app-text>
+            </th>
+            <th style="width: 20%; border: 0">
+              <app-text content="MwSt"></app-text>
+            </th>
+             <th style="width: 20%; border: 0">
+              <app-text content="Gesamt(Brutto)"></app-text>
+            </th>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="1"></app-text> </td>
+            <td style="border: 0"><app-text content="Husqvarna Motorsäge Kettensägen Benzin 455 Rancher .325 15 Zoll 38 cm 3.5 PS Ultimative Kultsäge 965030115 AiW KWMH5"></app-text> </td>
+            <td style="border: 0"><app-text content="308,12"></app-text> </td>
+            <td style="border: 0"><app-text content="308,12"></app-text> </td>
+            <td style="border: 0"><app-text content="19%"></app-text> </td>
+            <td style="border: 0"><app-text content="366,66"></app-text> </td>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="1"></app-text> </td>
+            <td style="border: 0"><app-text content="Paypalgebühr +2.00%"></app-text> </td>
+            <td style="border: 0"><app-text content="6,16"></app-text> </td>
+            <td style="border: 0"><app-text content="6,16"></app-text> </td>
+            <td style="border: 0"><app-text content="19%"></app-text> </td>
+            <td style="border: 0"><app-text content="7,33"></app-text> </td>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="1"></app-text> </td>
+            <td style="border: 0"><app-text content="GLS DE"></app-text> </td>
+            <td style="border: 0"><app-text content="0,00"></app-text> </td>
+            <td style="border: 0"><app-text content="0,00"></app-text> </td>
+            <td style="border: 0"><app-text content="19%"></app-text> </td>
+            <td style="border: 0"><app-text content="0,00"></app-text> </td>
+          </tr>
+        </table>
+      </div>
+
+      <div style="width: 390px"
+           random-interval-padding-bottom="90:140px"
+           random-list-margin-left="0px, 350px"
+           random-interval-font-size="14:16pt"
+      >
+        <div style="float: left">
+          <b>
+            <app-text content="Gesamtpreis Netto"></app-text>
+          </b>
+        </div>
+        <div style="float: right">
+          <b>
+            <app-text content="314,28 EUR"></app-text>
+          </b>
+        </div>
+        <div style="float: left; clear: left">
+          <app-text content="MwSt. 19,00%"></app-text>
+        </div>
+        <div style="float: right; clear: right">
+          <app-text content="59,71 EUR"></app-text>
+        </div>
+        <div style="float: left">
+          <b>
+            <app-text content="Gesamtpreis Brutto"></app-text>
+          </b>
+        </div>
+        <div style="float: right">
+          <b>
+            <app-text content="373,99 EUR"></app-text>
+          </b>
+        </div>
+      </div>
+      <hr>
+      <div random-list-margin-left="5%, 45%, 85%"
+           random-interval-padding-top="50:150px">
+        <app-text content="Datum "></app-text>
+        <app-entity endpoint="datetime"></app-entity>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<ng-template  #akte_06__153>
+  <div appRandomRender>
+
+    <!-- Random stamp -->
+    <div
+      style="position: absolute"
+      random-interval-width="20:30%"
+      random-list-opacity="0.3, 0.5"
+      random-list-transform="rotate(0deg), rotate(15deg), rotate(-15deg), rotate(60deg), rotate(-60deg)"
+      random-interval-top="10:50vh"
+      random-interval-left="10:70%"
+    >
+      <app-random-image srcDir="stamps" count="5"></app-random-image>
+    </div>
+
+    <div
+      style="display: flex; justify-content: space-around; width: 100%;"
+      random-interval-padding-top="120:200px"
+      random-interval-padding-bottom="120:200px"
+    >
+       <div style="float: left; margin-right: 10%; width:50%"
+            random-interval-padding-top="10:30px"
+            random-interval-font-size="14:16pt"
+       >
+         <app-entity endpoint="address"></app-entity>
+       </div>
+      <div style="float: right; margin-left: 10%; width: 50%">
+        <div
+          random-list-font-weight="600, 800"
+          random-list-text-transform="capitalize, uppercase"
+          random-list-text-align="center, right, left"
+          random-interval-font-size="16:25pt"
+          random-interval-padding-bottom="0:20px"
+        >
+          <app-text content="Rechnung"></app-text>  <!-- Rechnung doesnt change position-->
+        </div>
+        <table
+          random-interval-font-size="14:16pt"
+        >
+          <tr>
+            <th style="width: 5%;  border: 0">
+              <app-text content=" "></app-text>
+            </th>
+            <th style="width: 20%;  border: 0">
+              <app-text content=" "></app-text>
+            </th>
+            <th style="width: 5%;  border: 0">
+              <app-text content=" "></app-text>
+            </th>
+            <th style="width: 70%;  border: 0">
+              <app-text content=" "></app-text>
+            </th>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="ndennr."></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="Belegdatum"></app-text> </td>
+            <td style="border: 0"><app-entity endpoint="datetime"></app-entity> </td>
+            <td style="border: 0"><app-text content="Unser Zeichen"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="Sachbearbeiter"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content="Rechnung"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+          </tr>
+          <hr>
+          <tr>    <!-- ADD LINES ABOVE -->
+            <td style="border: 0"><app-text content="Bestellt von"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content="Telefon"></app-text> </td>
+            <td style="border: 0"><app-entity endpoint="phone"></app-entity> </td>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="Ihr Zeichen"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content="Telefax"></app-text> </td>
+            <td style="border: 0"><app-entity endpoint="fax"></app-entity> </td>
+          </tr>
+          <tr>
+            <td style="border: 0"><app-text content="Komission"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+          </tr>
+          <hr>
+          <tr>   <!-- ADD LINES ABOVE -->
+            <td style="border: 0"><app-text content="VorOrt"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content="Vor Ort"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+          </tr>
+          <hr>
+          <tr>    <!-- ADD LINES ABOVE -->
+            <td style="border: 0"><app-text content="Einsatzort Selbstabholer"></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+            <td style="border: 0"><app-text content=" "></app-text> </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div
+      random-interval-padding-top="50:90px"
+      random-interval-padding-bottom="50:90px"
+    >
+      <table>
+        <tr>
+          <th style="width: 20%; text-align: left; border: 0">
+            <app-text content="Anz."></app-text>
+          </th>
+          <th style="width: 30%; text-align: left; border: 0">
+            <app-text content="Artikelbezetofsiung"></app-text>
+          </th>
+          <th style="width: 20%; text-align: left; border: 0">
+            <app-text content="Tage"></app-text>
+          </th>
+          <th style="width: 20%; text-align: left; border: 0">
+            <app-text content="Mietzeitraum, vorläufig"></app-text>
+          </th>
+          <th style="width: 30%; text-align: left; border: 0">
+            <app-text content="E. Preis PH.*"></app-text>
+          </th>
+          <th style="width: 30%; text-align: left; border: 0">
+            <app-text content="G preis"></app-text>
+          </th>
+        </tr>
+        <tr>
+          <td style="border: 0"><app-text content="5.00"></app-text> </td>
+          <td style="border: 0"><app-text content="Fahrgerüst. L=3.00 m. B=0.8 m. Breite Fahrbalken=2.10m. (Abrechnung pro meter in Arbeitshohe)"></app-text> </td>
+          <td style="border: 0"><app-text content="1.0"></app-text> </td>
+          <td style="border: 0"><app-text content="24.05 16 11:00 25.05 16 09:00"></app-text> </td>
+          <td style="border: 0"><app-text content="0,00"></app-text> </td>
+          <td style="border: 0"><app-text content="40,00"></app-text> </td>
+        </tr>
+        <tr>
+          <td style="border: 0"><app-text content="1.00"></app-text> </td>
+          <td style="border: 0"><app-text content="Kleingeräteversicherung (10,00 % des Mietpreises). SB beträgt 50 C je Schaden"></app-text> </td>
+          <td style="border: 0"><app-text content="1.00"></app-text> </td>
+          <td style="border: 0"><app-text content=" "></app-text> </td>
+          <td style="border: 0"><app-text content="4,00"></app-text> </td>
+          <td style="border: 0"><app-text content="4,00"></app-text> </td>
+        </tr>
+        <tr>
+          <td style="border: 0"><app-text content="1.00"></app-text> </td>
+          <td style="border: 0"><app-text content="Ausgabe. Rücknahme. Obeipiufung"></app-text> </td>
+          <td style="border: 0"><app-text content=" "></app-text> </td>
+          <td style="border: 0"><app-text content=" "></app-text> </td>
+          <td style="border: 0"><app-text content="20,00"></app-text> </td>
+          <td style="border: 0"><app-text content="20,00"></app-text> </td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="display: flex; justify-content: space-around; width: 70%;"
+      random-interval-padding-top="50:100px"
+      random-interval-padding-bottom="50:100px"
+    >
+      <table align="left">
+        <tr>
+          <th style="width: 10%; border: 0; text-align: left">
+            <app-text content="Summe netto"></app-text>
+          </th>
+          <th style="width: 10%; border: 0; text-align: left">
+            <app-text content="MwSt. 19,00%"></app-text>
+          </th>
+          <th style="width: 10%; border: 0; text-align: left">
+            <app-text content="Endbetrag"></app-text></th>
+          <th style="width: 10%; border: 0; text-align: left">
+            <app-text content="Zahlungen"></app-text>
+          </th>
+          <th style="width: 10%; border: 0; text-align: left">
+            <app-text content="Zahlbetrag"></app-text>
+          </th>
+        </tr>
+        <tr>
+          <td style="border: 0"><app-text content="64.00"></app-text> </td>
+          <td style="border: 0"><app-text content="12,16"></app-text> </td>
+          <td style="border: 0"><app-text content="76,16"></app-text> </td>
+          <td style="border: 0"><app-text content="76,16"></app-text> </td>
+          <td style="border: 0"><app-text content="0,00"></app-text> </td>
+        </tr>
+      </table>
+    </div>
+    <div style="width: 950px"
+         random-interval-padding-bottom="10:50px"
+    >
+      <div random-interval-font-size="12:14pt">
+        <app-text content="Geleistete Zahlungen:"></app-text>
+        <app-entity endpoint="datetime"></app-entity>
+        <app-text content=" :-73.84 EUR (SAR);"></app-text>
+        <app-entity endpoint="datetime"></app-entity>
+        <app-text content=" S: 150.00 EUR(BAR)"></app-text>
+      </div>
+    </div>
+    <div style="width: 980px"
+         random-interval-padding-bottom="90:140px"
+    >
+      <div random-interval-font-size="12:14pt">
+        <app-text content="Zahlungsbedingungen: 150.00 G Vorkasse vor Mietbeginn. Restbetrag zahlbar ohne Abzüge bei Erhalt der Rechnung "></app-text>
+      </div>
+    </div>
+  </div>
+
+  <div
+    style="position: relative"
+    random-interval-width="15:30%"
+    random-list-opacity="0.3, 0.5, 0.7"
+    random-list-transform="rotate(0deg), rotate(15deg), rotate(-15deg), "
+    random-interval-top="10:50px"
+    random-interval-left="10:60%"
+  >
+    <app-random-image srcDir="signatures" count="4"></app-random-image>
   </div>
 </ng-template>

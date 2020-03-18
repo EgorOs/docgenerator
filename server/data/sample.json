@@ -1,0 +1,146 @@
+{
+    "pageSizes": [{
+        "pw": 3000,
+        "ph": 4245
+    }],
+    "Tags.contents": "Kanzlei Forster 7 Kanzlei Förster | Kronprinzenstraße 18 | 79268 Bötzingen SaniBau KGaA Oldesloer Strasse 50 07806 Breitenhain Wetzmann GmbH ./. Schmidt Ihr Zeichen: 234/AF-2019 Unser Zeichen: 00128/19 - pb/sd Sehr geehrte Damen und Herren, Kanzlei Förster Kronprinzenstraße 18 79268 Bötzingen Walburga von Weilersbach Sekretariat: Sabine Dierks Telefon: 0049 (0)4761 96 60.07 Telefax: +49 (0)221 94373 6000 1621 7. Januar 2020 in der vorbezeichneten Angelegenheit hat das Amtsgericht Köln, Luxemburger Str. 101, 50939 Köln, Termin zur mündlichen Verhandlung auf den Es ist nicht erforderlich, dass Sie an dem Termin Gericht eine besondere Ladung, in der das persönliche Wir werden den Termin wahrnehmen und über das Mit freundlichen Grüßen Walburga von Weilersbach Kanzlei Förster Rechtsanwälte, Kronprinzenstraße 18, 79268 18.02.2020, 10:25 Uhr, Saal 123 anberaumt. teilnehmen. Es sei denn, Sie erhalten durch das Erscheinen angeordnet wird. Ergebnis berichten. Bötzingen | Sitz Bötzingen, Amtsgericht Bötzingen (PR 500011) - IBAN: DE 55 3701 0050 1234 5678 | SWIFT-BIC: PBNKDEFFXXX | Postbank Köln | USt-Id Nr/VAT-Reg.No: DE1234567896 90 ",
+    "tags": [
+        {
+            "mainForm": "Briefpost",
+            "type": "DocTypeComm",
+            "coords": []
+        },
+        {
+            "features": {
+                "date_value": "07.01.2020",
+                "date_iso": "2020-01-07T00:00:00+00:00",
+                "Entity.span": {
+                    "start": 413,
+                    "end": 427
+                }
+            },
+            "mainForm": "7. Januar 2020",
+            "type": "DocDueDate",
+            "coords": [{
+                "p": 1,
+                "x": 2040,
+                "width": 218,
+                "y": 1369,
+                "height": 31
+            }]
+        },
+        {
+            "features": {
+                "date_value": "07.01.2020",
+                "date_iso": "2020-01-07T00:00:00+00:00",
+                "Entity.span": {
+                    "start": 413,
+                    "end": 427
+                }
+            },
+            "mainForm": "7. Januar 2020",
+            "type": "DocDate",
+            "coords": [{
+                "p": 1,
+                "x": 2040,
+                "width": 218,
+                "y": 1369,
+                "height": 31
+            }]
+        },
+        {
+            "features": {
+                "date_value": "18.02.2020",
+                "date_iso": "2020-02-18T00:00:00+00:00",
+                "Entity.span": {
+                    "start": 825,
+                    "end": 836
+                }
+            },
+            "mainForm": "18.02.2020",
+            "type": "DocDueDate",
+            "coords": [{
+                "p": 1,
+                "x": 1613,
+                "width": 284,
+                "y": 2253,
+                "height": 49
+            }]
+        },
+        {
+            "features": {"Entity.span": {
+                "start": 294,
+                "end": 318
+            }},
+            "mainForm": "Walburga von Weilersbach",
+            "type": "NatürlichePersonen",
+            "coords": [{
+                "p": 1,
+                "x": 2049,
+                "width": 391,
+                "y": 978,
+                "height": 36
+            }]
+        },
+        {
+            "features": {"Entity.span": {
+                "start": 332,
+                "end": 345
+            }},
+            "mainForm": "Sabine Dierks",
+            "type": "NatürlichePersonen",
+            "coords": [{
+                "p": 1,
+                "x": 2218,
+                "width": 204,
+                "y": 1044,
+                "height": 31
+            }]
+        },
+        {
+            "features": {"Entity.span": {
+                "start": 741,
+                "end": 765
+            }},
+            "mainForm": "Walburga von Weilersbach",
+            "type": "NatürlichePersonen",
+            "coords": [{
+                "p": 1,
+                "x": 356,
+                "width": 662,
+                "y": 3018,
+                "height": 53
+            }]
+        },
+        {
+            "features": {"Entity.span": {
+                "start": 75,
+                "end": 87
+            }},
+            "mainForm": "SaniBau KGaA",
+            "type": "JuristischePersonen",
+            "coords": [{
+                "p": 1,
+                "x": 360,
+                "width": 369,
+                "y": 1169,
+                "height": 40
+            }]
+        },
+        {
+            "features": {"Entity.span": {
+                "start": 127,
+                "end": 140
+            }},
+            "mainForm": "Wetzmann GmbH",
+            "type": "JuristischePersonen",
+            "coords": [{
+                "p": 1,
+                "x": 356,
+                "width": 400,
+                "y": 1800,
+                "height": 44
+            }]
+        }
+    ]
+}

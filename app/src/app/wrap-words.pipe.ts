@@ -5,14 +5,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class WrapWordsPipe implements PipeTransform {
 
-  transform(text: string): string {
-    return this.wrapInSpan(text);
+  transform(text: string, label?: string): string {
+    return this.wrapInSpan(text, label);
   }
 
-  wrapInSpan(text: string): string {
+  wrapInSpan(text: string, label: string): string {
     let wrapped = '';
-    for (const word of text.split(' ')) {
-      wrapped += `<span class="token">${word}</span> `;
+    if (label === 'O') {
+      for (const word of text.split(' ')) {
+        wrapped += `<span class="token" label="${label}">${word}</span> `;
+      }
+    } else {
+      const wordArr = text.split(' ');
+      for (let idx = 0; idx < wordArr.length; idx++ ) {
+        wrapped += `<span class="token" label="${idx ? 'I' : 'B'}-${label}">${wordArr[idx]}</span> `;
+      }
     }
     return wrapped;
   }
