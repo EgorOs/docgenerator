@@ -2,6 +2,7 @@
 
 <div id="paper-wrapper"
      random-list-font-family="Tahoma, Helvetica, Arial, Times New Roman"
+     random-list-transform="rotate(0deg), rotate(-0.5deg), rotate(1deg), rotate(-1.5deg), rotate(2deg), rotate(-2.5deg)"
      [ngStyle]="{
       'background': overlayColor + ' ' + randomPaperBg,
       'text-shadow': textShadow,
@@ -18,7 +19,6 @@
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }"
         random-list-font-family="Averia Libre, Averia Serif Libre, Gotu, Merriweather, Mirza, Playfair Display, Roboto Mono, Roboto Slab, Simonetta, Slabo 27px, Source Code Pro, Special Elite"
-        random-list-transform="rotate(0deg), rotate(-0.5deg), rotate(1deg), rotate(-1.5deg), rotate(2deg), rotate(-2.5deg)"
         >
 
   <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01]"></div>
@@ -35,7 +35,7 @@
 
 
 <ng-template  #akte_01>
-  <div appRandomRender>
+  <div>
     <app-contact class="reference_from"
       random-interval-margin-right="0:50%"
       random-interval-margin-top="40:60px"
@@ -187,7 +187,7 @@
 
 
 <ng-template  #akte_06__152>
-  <div appRandomRender>
+  <div>
 
     <!-- Random signature -->
     <div
@@ -330,7 +330,7 @@
 
 
 <ng-template  #akte_06__153>
-  <div appRandomRender>
+  <div>
 
     <!-- Random stamp -->
     <div
