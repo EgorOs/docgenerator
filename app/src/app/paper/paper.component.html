@@ -325,25 +325,249 @@
     <!-- Project -->
     <div style="display: flex; margin-top: 20px;" random-list-justify-content="flex-start, flex-end, center">
       <div style="text-align: center;">
-        <div style="font-style: italic;">Projekt, Objekt -bzw. Dienstbeschreibung</div>
+        <div style="font-style: italic;"><app-text content="Projekt, Objekt -bzw. Dienstbeschreibung"></app-text></div>
         <app-entity endpoint="address"></app-entity>
       </div>
     </div>
     <!-- Project end -->
 
-    <!-- Leistungszeitraum -->
-    <div style="width: 40%; margin: 50px 0 80px auto; display: flex; justify-content: space-between;">
-      <span>
-        Leistungszeitraum:  
+    <!-- Service period -->
+    <div 
+      style="margin: 50px 0 80px auto; display: flex; justify-content: space-between;"
+      random-interval-width="30:50%"
+      >
+      <span>  
+        <app-text content="Leistungszeitraum:  "></app-text>
       </span>
       <span>
-        Samstag den <app-entity endpoint="datetime"></app-entity>
-      </span>
+        <app-text content="Samstag den "></app-text> <app-entity endpoint="datetime"></app-entity>
+      </span>  
     </div>
-    <!-- Leistungszeitraum end -->
+    <!-- Service period end -->
 
-    <app-content random-list-text-align="left, justify">
-    </app-content>
+    <app-text style="font-size: 20px;" content="Rechnung Nr.,"></app-text>
+    <!-- Table -->
+    <table
+      random-interval-margin-bottom="30:80px"
+      style="width: 100%; text-align: center;"
+    >
+    <!-- Table header -->
+      <tr>
+        <th style="width: 40%;">
+          <app-text content="Position / Bezeichnung"></app-text>
+        </th>
+        <th style="width: 10%;">
+          <app-text content="Menge"></app-text>
+        </th>
+        <th style="width: 10%;">
+          <app-text content="Einheit"></app-text></th>
+        <th style="width: 10%;">
+          <app-text content="EP"></app-text>
+        </th>
+        <th style="width: 20%;">
+          <app-text content="Gesamtpreis"></app-text>
+        </th>
+      </tr>
+    <!-- Table header end -->
+
+    <!-- Row 1 row -->
+      <tr>
+        <td style="border-width: 0 1px;">
+          <app-text content="Netzüberprüfuna"></app-text>
+        </td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+      </tr>
+    <!-- Row 1 end-->
+    <!-- Row 2 -->
+      <tr>
+        <td style="border-width: 0 1px; text-align: left; padding: 5px 20px;">
+          <app-text
+          content='Nach Anforderung des Herrn Martin Kaufmann wurde die von der Firma "Wires&Cables Construction" errichtete Zähleranlage auf Leckströme untersucht.'></app-text> 
+        </td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+      </tr>
+    <!-- Row 2 end -->
+    <!-- Row 3 -->
+      <tr>
+        <td style="border-width: 0 1px; text-align: left; padding: 0 20px;">
+          <app-text
+          content="Es wurden keine Fehler festgestellt."></app-text> 
+        </td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px; text-align: right;"><app-text content="132,05€"></app-text> </td>
+      </tr>
+    <!-- Row 3 end -->
+    <!-- Row 4 -->
+      <tr>
+        <td style="border-width: 0 1px; text-align: left;">
+          <app-text
+          content="-	An-u. Abfahrtskosten"></app-text> 
+        </td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px;"></td>
+        <td style="border-width: 0 1px; text-align: right;"><app-text content="108,00€"></app-text> </td>
+      </tr>
+    <!-- Row 4 end -->
+    <!-- Row 5 -->
+      <tr>
+        <td style="border-width: 0 1px; text-align: left;">
+          <app-text
+          content="-	Monteurstunden"></app-text> 
+        </td>
+        <td style="border-width: 0 1px;"><app-text content="139"></app-text></td>
+        <td style="border-width: 0 1px;"><app-text content="km"></app-text></td>
+        <td style="border-width: 0 1px; text-align: right;"><app-text content="0.95€"></app-text></td>
+        <td style="border-width: 0 1px;"></td>
+      </tr>
+    <!-- Row 5 end-->
+    <!-- Row 6 -->
+      <tr>
+        <td style="border-width: 0 1px; text-align: left;">
+          <app-text
+          content="Hinweis:"></app-text> 
+        </td>
+        <td style="border-width: 0 1px;"><app-text content="3"></app-text></td>
+        <td style="border-width: 0 1px;"><app-text content="Std."></app-text></td>
+        <td style="border-width: 0 1px; text-align: right;"><app-text content="36.00€"></app-text></td>
+        <td style="border-width: 0 1px;"></td>
+      </tr>
+    <!-- Row 6 end -->
+    <!-- Row 7 -->
+      <tr>
+        <td style="border-width: 0 1px 1px; text-align: left;" random-interval-padding-bottom="50:200px">
+          <app-text
+          content="-	Gesamtzeitaufwand 11:45 Uhr bis 17.30 Uhr (Notfall)"></app-text> 
+        </td>
+        <td style="border-width: 0 1px 1px;"></td>
+        <td style="border-width: 0 1px 1px;"></td>
+        <td style="border-width: 0 1px 1px;"></td>
+        <td style="border-width: 0 1px 1px;"></td>
+      </tr>
+    <!-- Row 7 end -->
+    <!-- Table footer -->
+      <tr>
+        <td 
+          rowspan="2" 
+          style="border-width: 0; text-align: left;"
+          random-interval-padding-top="0:15px"
+          >
+          <app-text content="Hinweis:"></app-text> 
+        </td>
+        <td 
+          colspan="3" 
+          style="border-width: 1px; padding-bottom: 10px;"
+          random-interval-padding-bottom="0:15px">
+          <app-text content="Gesamtsumme netto"></app-text>
+        </td>
+        <td style="border-width: 1px; text-align: right">
+          <app-text content="240,05 €"></app-text>
+        </td>
+      </tr>
+
+      <tr>
+        <td 
+          colspan="3" 
+          style="border-width: 1px;"
+          random-list-text-align="center, right"
+          random-interval-padding-top="0:15px">
+          <app-text random-interval-margin-right="5:70px" content="Umsatzsteuer"></app-text><app-text content="19%"></app-text>
+        </td>
+        <td style="border-width: 1px; text-align: right">
+          <app-text content="45,61 €"></app-text>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="border-width: 0; text-align: left;">
+          <app-text content="Datum:"></app-text> 
+        </td>
+        <td colspan="3" style="border-width: 1px; padding-bottom: 8px;">
+          <app-text content="Gesamtsumme Brutto"></app-text>
+        </td>
+        <td style="border-width: 1px; text-align: right">
+          <app-text content="285,66 €"></app-text>
+        </td>
+      </tr>
+      <!-- Table footer end-->
+    </table>
+    <!-- Table end -->
+
+    <!-- Bill -->
+    <table style="width: 100%; margin-bottom: 20px;">
+      <tr>
+        <td rowspan="3" style="width: 50%; border-width: 0; font-size: 18px; text-align: center; text-decoration: underline;">
+          <app-text content="Handwerkerrechnunq, nicht skontierfähiq!"></app-text>
+        </td>
+        <td rowspan="3" style="border-width: 0;">
+          <app-text content="0%"></app-text>
+        </td>
+        <td style="border-width: 0;">
+        </td>
+        <td
+          random-interval-padding-right="0:30px" 
+          style="border-width: 0; text-align: right;"
+        >
+          <app-text content="285,66 €"></app-text>
+        </td>
+      </tr>
+      <tr>
+        <td
+          random-interval-padding-left="0:30px"
+          style="border-width: 0; font-weight: 700; text-decoration: underline;"
+        >
+          <app-text content="gewährt ="></app-text>
+        </td>
+        <td style="border-width: 0; font-weight: 700; text-align: right;">
+          <app-text content="ng"></app-text>
+        </td>
+      </tr>
+      <tr>
+        <td 
+          random-interval-padding-left="0:30px"
+          style="border-width: 0; font-weight: 700; text-decoration: underline;"
+        >
+          <app-text content="zu zahlen"></app-text>
+        </td>
+        <td style="border-width: 0; font-weight: 700; text-align: right;">
+          <app-text content="285,66 €"></app-text>
+        </td>
+      </tr>
+    </table>
+    <!-- Bill end -->
+
+    <!-- Payment request -->
+    <div style="font-size: 25px; margin-bottom: 60px;">
+      <app-text content="Zahlungsanforderung"></app-text>
+    </div>
+    <!-- Payment request end -->
+
+    <!-- Footer -->
+    <div
+      random-interval-font-size="14:18px"
+    >
+      <div>
+        <app-text content="Alle Rechnungen zahlbar an Firmenname"></app-text>
+      </div>
+      <div>
+        <app-text content="Bitte zahlen Sie sofort ohne Abzug an die unten genannte Bankverbindung."></app-text>
+      </div>
+      <div>
+        <app-text content="Für überfällige Rechnungen wird eine Mahngebühr von 1% pro Monat plus Bearbeitungsgebühren berechnet. Die gelieferte Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."></app-text>
+      </div>
+      <div style="text-align: center;">
+        <app-text content="VIELEN DANK FÜR IHREN AUFTRAG!"></app-text>
+      </div>
+    </div>
+    <!-- Footer end -->
 
   </div>
 </ng-template>
