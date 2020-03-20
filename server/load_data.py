@@ -48,7 +48,7 @@ def upload_data():
     collection = connect_to_db()
     for file in get_full_path_to_documents():
         data = []
-        with open(file) as document:
+        with open(file, encoding='utf-8') as document:
             doc = json.load(document)
         for main_key in doc:
             if main_key == 'Tags.contents':
