@@ -21,7 +21,7 @@
         random-list-font-family="Averia Libre, Averia Serif Libre, Gotu, Merriweather, Mirza, Playfair Display, Roboto Mono, Roboto Slab, Simonetta, Slabo 27px, Source Code Pro, Special Elite"
         >
 
-  <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01]"></div>
+  <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01, akte_01__009]"></div>
 <!--    <div *appRandomTemplate="[akte_06__153]"></div>-->
 </div>
 
@@ -182,6 +182,169 @@
     <div random-list-margin-left="5%, 45%, 85%" style="padding-top: 10px">
       <app-text content="Seite 1 von 1"></app-text>
     </div>
+  </div>
+</ng-template>
+
+
+<ng-template #akte_01__009>
+  <div appRandomRender>
+
+    <!-- Logo -->
+    <div
+    style="float: right; max-width: 35%;"
+    random-interval-font-size="30:55px"
+    random-list-font-weight="100,200,300,400,500,600,700,800,900"
+    random-interval-letter-spacing="-7:15px"
+    >
+      <app-text content="RECHNUNG"></app-text>
+    </div>
+    <!-- Logo end -->
+
+    <!-- Header -->
+    <div style="width: 65%; display: flex; justify-content: stretch;">
+
+      <!-- First column -->
+      <div 
+        random-interval-margin-right="20:50px"
+        style="flex-shrink: 0;"
+      >
+        <!-- Group heading -->
+        <div>
+          <!-- Heading -->
+          <div style="font-weight: 800" random-interval-font-size="18:25px">
+            <app-text content="Bernhard Baumeister UG"></app-text>
+          </div>
+          <!-- Heading end -->
+
+          <!-- Subtitle -->
+          <div style="font-weight: 700; margin-bottom: 20px;">
+            <app-text content="(haftungsbeschränkt)"></app-text>
+          </div>
+          <!-- Subtitle end -->
+
+          <!-- Address -->
+          <div
+          random-list-font-weight="100,200,300,400"
+          random-interval-margin-bottom="20:40px"
+          random-interval-font-size="0.85:1em"
+          style="display:block; width:180px; font-style: italic;"
+          >
+            <app-entity endpoint="address"></app-entity>
+          </div>
+          <!-- Address end -->
+        </div>
+        <!-- Group heading end -->
+
+        <!-- Rechnung an -->
+        <div 
+          style="margin-bottom: 20px; font-weight: 700;"
+          random-interval-margin-top="20:40px"
+        >
+          <app-text content="Rechnung an:"></app-text>
+        </div>
+        <!-- Rechnung an end-->
+
+        <!-- Recipient -->
+        <div>
+          <div style="margin: 8px 0;">
+            <app-text content="Herr"></app-text>
+          </div>
+          
+          <app-entity endpoint="name"></app-entity><br/>
+          <app-entity style="display:block; width:150px;" endpoint="address"></app-entity>
+        </div>
+        <!-- Recipient end -->
+      </div>
+      <!-- First column end -->
+
+      <!-- Second column -->
+      <div
+        style="margin-right: 20px; min-width: 250px;"
+        random-interval-margin-top="0:120px"
+        random-interval-width="270:350px"
+        random-interval-line-height="18:25px"
+      >
+        <!-- Date -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text content="DATUM: "></app-text>
+          <app-entity endpoint="datetime"></app-entity>
+        </div>
+        <!-- Date end -->
+
+        <!-- RECHNUNG NR -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text content="RECHNUNG NR."></app-text>
+        </div>
+        <!-- RECHNUNG NR end-->
+
+        <!-- Steuemummer -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text content="Steuemummer: "></app-text>
+        </div>
+        <!-- Steuemummer end -->
+
+        <!-- Ust-IDNr -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text content="Ust-IDNr.: "></app-text>
+        </div>
+        <!-- Ust-IDNr end -->
+
+        <!-- Phone -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 15px;">
+          <app-text content="Mobil: "></app-text>
+          <app-entity style="float: right;" endpoint="phone"></app-entity>
+        </div>
+        <!-- Phone end -->
+
+        <!-- Email -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text content="E-Mail: "></app-text>
+          <app-entity style="float: right;" endpoint="email"></app-entity>
+        </div>
+        <!-- Email end -->
+
+        <!-- Fax -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text content="Fax NR.: "></app-text>
+          <app-entity endpoint="fax"></app-entity>
+        </div>
+        <!-- Fax end -->
+
+        <!-- Fur -->
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap">
+          <app-text style="display: block; margin-top: 15px; text-decoration: underline;" content="Für: "></app-text>
+        </div>
+        <!-- Fur end -->
+
+      </div>
+      <!-- Second column end -->
+
+    </div>
+    <!-- Header end -->
+
+    <!-- Project -->
+    <div style="display: flex; margin-top: 20px;" random-list-justify-content="flex-start, flex-end, center">
+      <div style="text-align: center;">
+        <div style="font-style: italic;">Projekt, Objekt -bzw. Dienstbeschreibung</div>
+        <app-entity endpoint="address"></app-entity>
+      </div>
+    </div>
+    <!-- Project end -->
+
+    <!-- Leistungszeitraum -->
+    <div style="width: 40%; margin: 50px 0 80px auto; display: flex; justify-content: space-between;">
+      <span>
+        Leistungszeitraum:  
+      </span>
+      <span>
+        Samstag den <app-entity endpoint="datetime"></app-entity>
+      </span>
+    </div>
+    <!-- Leistungszeitraum end -->
+
+    <app-content random-list-text-align="left, justify">
+    </app-content>
+
   </div>
 </ng-template>
 
