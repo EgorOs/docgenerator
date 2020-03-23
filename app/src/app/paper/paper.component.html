@@ -15,6 +15,7 @@
     }">
 
   <div id="inner" appRandomRender
+        style="margin-top: 100px" 
        [ngStyle]="{
         'padding': innerAreaVerticalPadding + ' ' + innerAreaHorizontalPadding
         }"
@@ -187,7 +188,7 @@
 
 
 <ng-template #akte_01__009>
-  <div appRandomRender>
+  <div>
 
     <!-- Logo -->
     <div
@@ -574,7 +575,7 @@
 
 
 <ng-template #akte_21__46>
-  <div appRandomRender>
+  <div>
     <!-- Page number -->
     <div
       random-interval-top="10:30px"
@@ -911,18 +912,6 @@
 
 <ng-template  #akte_06__152>
   <div>
-
-    <!-- Random signature -->
-    <div
-      style="position: absolute"
-      random-interval-width="20:40%"
-      random-list-opacity="0.3, 0.5, 0.7"
-      random-list-transform="rotate(0deg), rotate(15deg), rotate(-15deg), "
-      random-interval-top="10:70vh"
-      random-interval-left="10:60%"
-    >
-      <app-random-image srcDir="signatures" count="4"></app-random-image>
-    </div>
 
     <div
       style="display: flex; justify-content: space-around; width: 100%;"
