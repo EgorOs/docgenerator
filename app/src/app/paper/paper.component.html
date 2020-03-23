@@ -21,8 +21,8 @@
         random-list-font-family="Averia Libre, Averia Serif Libre, Gotu, Merriweather, Mirza, Playfair Display, Roboto Mono, Roboto Slab, Simonetta, Slabo 27px, Source Code Pro, Special Elite"
         >
 
-  <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01, akte_01__009]"></div>
-<!--    <div *appRandomTemplate="[akte_06__153]"></div>-->
+  <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01, akte_01__009, akte_21__46]"></div>
+   <!-- <div *appRandomTemplate="[akte_21__46]"></div> -->
 </div>
 
 
@@ -569,6 +569,342 @@
     </div>
     <!-- Footer end -->
 
+  </div>
+</ng-template>
+
+
+<ng-template #akte_21__46>
+  <div appRandomRender>
+    <!-- Page number -->
+    <div
+      random-interval-top="10:30px"
+      random-interval-right="10:80px" 
+      style="position: absolute;">
+      <app-text content="Seite 1 von 3"></app-text>
+    </div>
+    <!-- Page number end -->
+
+    <!-- Header -->
+    <div 
+      random-interval-margin-top="0:50px"
+      random-interval-margin-bottom="10:20px"
+      random-interval-font-size="18:28px"
+      random-interval-border-bottom-width="1:4px"
+      random-list-border-bottom-color="#000, #222, #333, #444, #555"
+      random-interval-padding-bottom="0:8px"
+      style="border-bottom-style: solid;"
+
+    >
+      <app-entity endpoint="name"></app-entity>
+    </div>
+    <!-- Header end -->
+
+    <!-- Email -->
+    <div
+      random-interval-font-size="12:18px"
+      random-interval-margin-left="0:20px"
+      random-interval-margin-bottom="30:80px"
+    >
+      <!-- Mail fields -->
+      <div
+        class="email_header"
+        style="display: flex;"
+        random-interval-margin-left="0:25px"
+        random-interval-line-height="16:32px"
+      >
+        <!-- Titles  -->
+        <div style="font-weight: 800;">
+          <div>
+            <app-text content="Von:"></app-text>
+          </div>
+          <div>
+            <app-text content="Gesendet:"></app-text>
+          </div>
+          <div>
+            <app-text content="An:"></app-text>
+          </div>
+          <div>
+            <app-text content="Betreff:"></app-text>
+          </div>
+          <div>
+            <app-text content="Anlagen:"></app-text>
+          </div>
+        </div>
+        <!-- Titles end -->
+        <!-- Content -->
+        <div random-interval-margin-left="0:90px">
+          <div>
+            <app-entity endpoint="name"></app-entity><app-text content=" [Matthias.Diller@bauche.de]"></app-text>
+          </div>
+          <div>
+            <app-entity endpoint="datetime"></app-entity>
+          </div>
+          <div>
+            <app-entity endpoint="name"></app-entity>
+          </div>
+          <div>
+            <app-text content="WG: IXAH - Pflegeheim-HSH-FFM: Schreiner/ABC: Verzugsfeststellung"></app-text>
+          </div>
+          <div>
+            <app-text content="20140729142544087.pdf, WG.Magelllste Ringel Haus (Gokart), ABC-Projekt 32092"></app-text>
+          </div>
+        </div>
+        <!-- Content end -->
+      </div>
+      <!-- Mail fields end -->
+      
+      <!-- Mail body -->
+      <div random-interval-margin-top="25:50px">
+        <!-- Greetings -->
+        <div>
+          <app-text content="Hallo "></app-text>
+          <app-entity endpoint="name"></app-entity>,
+        </div>
+        <!-- Greetings end -->
+        
+        <!-- Main -->
+        <p 
+          random-interval-margin-top="0:25px"
+          random-interval-margin-bottom="0:25px"
+          random-interval-max-width="60:100%"
+        >
+          <app-text content="Würden Sie in dem BV Ringel Haus Gokart bitte entsprechend der Nachricht von Herrn Voige auf Ihrem
+          Kanzleipapier anschreiben. Herr Siekmann hatte auch schon eine Bewertung der Schäden vorgenommen
+          (siehe Mail-Anhang).
+          "></app-text>
+        </p>
+        <!-- Main end -->
+
+        <!-- Signature -->
+        <div>
+          <p>
+            <app-text content="Danke und Gruß"></app-text>
+          </p>
+          <p>
+            <app-entity endpoint="name"></app-entity>
+          </p>
+        </div>
+        <!-- Signature end -->
+      </div>
+      <!-- Mail body end -->
+    </div>  
+    <!-- Email end -->
+
+    <!-- Reply -->
+    <div
+      random-interval-font-size="12:18px"
+      random-interval-border-top-width="1:3px"
+      random-list-border-bottom-color="#000, #222, #333, #444, #555"
+      random-interval-padding-top="10:30px"
+      style="border-top-style: solid;"
+    >
+      <!-- Mail fields -->
+      <div
+        class="email_header"
+        style="display: flex;"
+        random-interval-margin-left="0:20px"
+        random-interval-line-height="16:32px"
+      >
+        <!-- Titles  -->
+        <div style="font-weight: 800;">
+          <div>
+            <app-text content="Von:"></app-text>
+          </div>
+          <div>
+            <app-text content="Gesendet:"></app-text>
+          </div>
+          <div>
+            <app-text content="An:"></app-text>
+          </div>
+          <div>
+            <app-text content="Betreff:"></app-text>
+          </div>
+        </div>
+        <!-- Titles end -->
+        <!-- Content -->
+        <div random-interval-margin-left="0:90px">
+          <div>
+            <app-entity endpoint="name"></app-entity>
+          </div>
+          <div>
+            <app-entity endpoint="datetime"></app-entity>
+          </div>
+          <div>
+            <app-entity endpoint="name"></app-entity>
+          </div>
+          <div>
+            <app-text content="AW: IXAH - Pflegeheim-HSH-FFM: Schreiner/ABC: Verzugsfeststellung - Kündigungsandrohung /"></app-text>
+          </div>
+        </div>
+        <!-- Content end -->
+      </div>
+      <!-- Mail fields end -->
+      
+      <!-- Mail body -->
+      <div random-interval-margin-top="25:50px">        
+        <!-- Main -->
+        <div 
+          random-interval-margin-bottom="25:50px"
+          random-list-font-weight="400, 800"
+        >
+          <p random-interval-margin-bottom="10:15px">
+            <app-text content="Ich würde Gokart über den Verwalter anschreiben lassen, dass die Masse die Mängel nicht
+            beheben kann, dass aber Einverständnis besteht, wenn damit der neue Rechtsträger
+            beauftragt wird und die insoweit entstehenden Kosten von den offenen Forderungen in Höhe
+            von 40 TEUR gekürzt werden
+            "></app-text>
+          </p>
+          <p>
+            <app-text content="Das bietet zumindest noch eine gewisse Chance auf Realisierung einer Teilforderung."></app-text>
+          </p>
+        </div>
+        <!-- Main end -->
+
+        <!-- Signature -->
+        <div>
+          <p random-interval-margin-bottom="10:15px">
+            <app-text content="Freundliche Grüße"></app-text>
+          </p>
+          <p>
+            <app-text content="Dipl.-Kaufmann (FH)"></app-text>
+          </p>
+          <p 
+            random-list-font-weight="400, 800"
+            random-interval-font-size="100:200%"
+          >
+            <app-entity endpoint="name"></app-entity>
+          </p>
+          <p>
+            <app-text content="Steuerberater"></app-text>
+          </p>
+        </div>
+        <!-- Signature end -->
+      </div>
+      <!-- Mail body end -->
+    </div>
+    <!-- Reply end -->
+    
+    <!-- Footer -->
+    <div class="footer">
+      <!-- Company info -->
+      <div random-interval-margin-top="50:100px">
+        <p>
+          <app-text content="Bauche, Voige & Partner Steuerberatungsgesellschaft"></app-text>
+        </p>
+        <p>
+          <app-text content="Eingetragene Partnerschaft mit Sitz in Verden (Aller)"></app-text>
+        </p>
+        <p>
+          <app-text content="Partnerschaftsregister-Nr. PR 100735"></app-text>
+        </p>
+        <p>
+          <app-text content="Eingetragen beim Amtsgericht Hannover"></app-text>
+        </p>
+      </div>
+      <!-- Company info end  -->
+
+      <!-- Contacts -->
+      <div
+        random-interval-margin-top="50:100px" 
+        style="display: flex;"
+      >
+        <!-- Contact group -->
+        <div random-interval-margin-left="0:20px">
+          <p style="font-size: 1.7em; font-weight: 800;">
+            <app-entity endpoint="name"></app-entity>
+          </p>
+          <p 
+            random-interval-max-width="70:100%"
+            style="margin-bottom: 20px"
+          >
+            <app-entity endpoint="address"></app-entity>
+          </p>
+          <div style="display: flex;">
+            <div>
+              <p random-interval-margin-left="-2:3px">
+                <app-text content="Tel:"></app-text>
+              </p>
+              <p random-interval-margin-left="-2:3px">
+                <app-text content="Fax:"></app-text>
+              </p>
+              <p 
+                style="margin-bottom: 20px"
+                random-interval-margin-left="-2:3px"  
+              >
+                <app-text content="Mobil:"></app-text>
+              </p>
+              <p random-interval-margin-left="-2:3px">
+                <app-text content="Mail:"></app-text>
+              </p>
+              <p random-interval-margin-left="-3:2px">
+                <app-text content="Web:"></app-text>
+              </p>
+            </div>
+            <div random-interval-margin-left="0:15px">
+              <p random-interval-margin-left="-2:3px">
+                <app-entity endpoint="phone"></app-entity>
+              </p>
+              <p random-interval-margin-left="-3:2px">
+                <app-entity endpoint="fax"></app-entity>
+              </p>
+              <p 
+                style="margin-bottom: 20px"
+                random-interval-margin-left="-5:5px"
+              >
+                <app-entity endpoint="phone"></app-entity>
+              </p>
+              <p style="text-decoration: underline;">
+                <app-entity endpoint="email"></app-entity>
+              </p>
+              <p style="text-decoration: underline;">
+                <app-text content="www.bauche.de"></app-text>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Contact group end -->
+        
+        <!-- Contact group -->
+        <div random-interval-margin-left="40:120px">
+          <p style="font-size: 1.7em; font-weight: 800;">
+            <app-entity endpoint="name"></app-entity>
+          </p>
+          <p 
+            style="margin-bottom: 20px"
+            random-interval-max-width="70:100%"
+          >
+            <app-entity endpoint="address"></app-entity>
+          </p>
+          <div style="display: flex;">
+            <div>
+              <p random-interval-margin-left="-5:5px">
+                <app-text content="Tel:"></app-text>
+              </p>
+              <p random-interval-margin-left="-5:5px">
+                <app-text content="Fax:"></app-text>
+              </p>
+            </div>
+            <div random-interval-margin-left="0:15px">
+              <p random-interval-margin-left="-5:5px">
+                <app-entity endpoint="phone"></app-entity>
+              </p>
+              <p random-interval-margin-left="-5:5px">
+                <app-entity endpoint="fax"></app-entity>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Contact group end -->
+      </div>
+      <!-- Contacts end -->
+    
+      <!-- Date -->
+      <p random-interval-margin-top="60:150px">
+        <app-entity endpoint="datetime"></app-entity>
+      </p>
+      <!-- Date end -->
+    </div>
+    <!-- Footer end -->
   </div>
 </ng-template>
 
