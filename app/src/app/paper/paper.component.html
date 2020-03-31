@@ -1,8 +1,8 @@
 <link href="https://fonts.googleapis.com/css?family=Averia+Libre|Averia+Serif+Libre|Gotu|Merriweather|Mirza|Playfair+Display|Roboto+Mono|Roboto+Slab|Simonetta|Slabo+27px|Source+Code+Pro|Special+Elite&display=swap" rel="stylesheet">
 
+<!-- random-list-transform="rotate(0deg), rotate(-0.5deg), rotate(1deg), rotate(-1.5deg), rotate(2deg), rotate(-2.5deg)" -->
 <div id="paper-wrapper"
      random-list-font-family="Tahoma, Helvetica, Arial, Times New Roman"
-     random-list-transform="rotate(0deg), rotate(-0.5deg), rotate(1deg), rotate(-1.5deg), rotate(2deg), rotate(-2.5deg)"
      [ngStyle]="{
       'background': overlayColor + ' ' + randomPaperBg,
       'text-shadow': textShadow,
@@ -23,7 +23,7 @@
         >
 
   <div *appRandomTemplate="[akte_06__153, akte_06__152, akte_01, akte_01__009, akte_21__46]"></div>
-   <!-- <div *appRandomTemplate="[akte_21__46]"></div> -->
+   <!-- <div *appRandomTemplate="[classic]"></div> -->
 </div>
 
 
@@ -36,6 +36,7 @@
 
 
 <ng-template  #akte_01>
+  <div id="context" doctype="Briefpost"></div>
   <div>
     <app-contact class="reference_from"
       random-interval-margin-right="0:50%"
@@ -188,8 +189,9 @@
 
 
 <ng-template #akte_01__009>
-  <div>
 
+  <div id="context" doctype="Briefpost"></div>
+  <div>
     <!-- Logo -->
     <div
     style="float: right; max-width: 35%;"
@@ -213,7 +215,7 @@
         <div>
           <!-- Heading -->
           <div style="font-weight: 800" random-interval-font-size="18:25px">
-            <app-text content="Bernhard Baumeister UG"></app-text>
+            <app-entity endpoint="jurname"></app-entity>
           </div>
           <!-- Heading end -->
 
@@ -251,7 +253,7 @@
             <app-text content="Herr"></app-text>
           </div>
           
-          <app-entity endpoint="name"></app-entity><br/>
+          <app-entity endpoint="naturname"></app-entity><br/>
           <app-entity style="display:block; width:150px;" endpoint="address"></app-entity>
         </div>
         <!-- Recipient end -->
@@ -386,7 +388,10 @@
       <tr>
         <td style="border-width: 0 1px; text-align: left; padding: 5px 20px;">
           <app-text
-          content='Nach Anforderung des Herrn Martin Kaufmann wurde die von der Firma "Wires&Cables Construction" errichtete Zähleranlage auf Leckströme untersucht.'></app-text> 
+          content='Nach Anforderung des '></app-text>
+            <!-- Naturliche name inserted in text -->
+            <app-entity endpoint='naturname'></app-entity>
+          <app-text content=' wurde die von der Firma "Wires&Cables Construction" errichtete Zähleranlage auf Leckströme untersucht.'></app-text> 
         </td>
         <td style="border-width: 0 1px;"></td>
         <td style="border-width: 0 1px;"></td>
@@ -575,6 +580,7 @@
 
 
 <ng-template #akte_21__46>
+  <div id="context" doctype="Email"></div>
   <div>
     <!-- Page number -->
     <div
@@ -596,7 +602,7 @@
       style="border-bottom-style: solid;"
 
     >
-      <app-entity endpoint="name"></app-entity>
+      <app-entity endpoint="naturname"></app-entity>
     </div>
     <!-- Header end -->
 
@@ -635,13 +641,13 @@
         <!-- Content -->
         <div random-interval-margin-left="0:90px">
           <div>
-            <app-entity endpoint="name"></app-entity><app-text content=" [Matthias.Diller@bauche.de]"></app-text>
+            <app-entity endpoint="naturname"></app-entity><app-text content=" [Matthias.Diller@bauche.de]"></app-text>
           </div>
           <div>
             <app-entity endpoint="datetime"></app-entity>
           </div>
           <div>
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </div>
           <div>
             <app-text content="WG: IXAH - Pflegeheim-HSH-FFM: Schreiner/ABC: Verzugsfeststellung"></app-text>
@@ -659,7 +665,7 @@
         <!-- Greetings -->
         <div>
           <app-text content="Hallo "></app-text>
-          <app-entity endpoint="name"></app-entity>,
+          <app-entity endpoint="naturname"></app-entity>,
         </div>
         <!-- Greetings end -->
         
@@ -682,7 +688,7 @@
             <app-text content="Danke und Gruß"></app-text>
           </p>
           <p>
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </p>
         </div>
         <!-- Signature end -->
@@ -725,13 +731,13 @@
         <!-- Content -->
         <div random-interval-margin-left="0:90px">
           <div>
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </div>
           <div>
             <app-entity endpoint="datetime"></app-entity>
           </div>
           <div>
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </div>
           <div>
             <app-text content="AW: IXAH - Pflegeheim-HSH-FFM: Schreiner/ABC: Verzugsfeststellung - Kündigungsandrohung /"></app-text>
@@ -773,7 +779,7 @@
             random-list-font-weight="400, 800"
             random-interval-font-size="100:200%"
           >
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </p>
           <p>
             <app-text content="Steuerberater"></app-text>
@@ -812,7 +818,7 @@
         <!-- Contact group -->
         <div random-interval-margin-left="0:20px">
           <p style="font-size: 1.7em; font-weight: 800;">
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </p>
           <p 
             random-interval-max-width="70:100%"
@@ -868,7 +874,7 @@
         <!-- Contact group -->
         <div random-interval-margin-left="40:120px">
           <p style="font-size: 1.7em; font-weight: 800;">
-            <app-entity endpoint="name"></app-entity>
+            <app-entity endpoint="naturname"></app-entity>
           </p>
           <p 
             style="margin-bottom: 20px"
@@ -911,6 +917,7 @@
 
 
 <ng-template  #akte_06__152>
+  <div id="context" doctype="Briefpost"></div>
   <div>
 
     <div
@@ -1042,6 +1049,7 @@
 
 
 <ng-template  #akte_06__153>
+  <div id="context" doctype="Briefpost"></div>
   <div>
 
     <!-- Random stamp -->
