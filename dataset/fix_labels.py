@@ -24,6 +24,8 @@ def convert():
         person_count = 0
         date_count = 0
 
+        # if csv_filename != '101.csv':
+        #     continue
         for row in df.iterrows():
 
             label = row[1]['label']
@@ -49,10 +51,16 @@ def convert():
                     else:
                         label_lst.append('-'.join((label_prefix, 'DocInvolvedParty')))
                         label2_lst.append(label)
+                else:
+                    label_lst.append(label)
+                    label2_lst.append('O')
             elif label_base in date_labels:
                 if (date_count == 0 and label_prefix == 'B') or (date_count <= 1 and label_prefix == 'I'):
                     label_lst.append(label)
                     label2_lst.append(label)
+                else:
+                    label_lst.append('O')
+                    label2_lst.append('O')
 
                 if label_prefix == 'B':
                     date_count += 1   
@@ -60,7 +68,7 @@ def convert():
                 label_lst.append(label)
                 label2_lst.append(label)
 
-
+        # print(len(label_lst), len(list(df.iterrows())))
         label_column = pd.Series(label_lst, name='label')
         label2_column = pd.Series(label2_lst, name='label2')
         df.update(label_column)
