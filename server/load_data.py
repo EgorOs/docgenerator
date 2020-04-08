@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 
 
-# import pymongo
-# from pymongo import MongoClient
+import pymongo
+from pymongo import MongoClient
 
 
 def connect_to_db():
@@ -77,7 +77,7 @@ def upload_data():
         'DocInvolvedParty': 'docinvolvedparty',
     }
 
-    # collection = connect_to_db()
+    collection = connect_to_db()
     for file in get_full_path_to_documents():
         data = []
         span_data = []
@@ -136,12 +136,10 @@ def upload_data():
             }
         )
 
-        import pprint
-        pprint.pprint(data)
 
-        # result = collection.insert_many(data)
+        result = collection.insert_many(data)
 
-        # logging.info(f'Uploaded successfully, inserted_ids : {result.inserted_ids}')
+        logging.info(f'Uploaded successfully, inserted_ids : {result.inserted_ids}')
     return 'All done'
 
 
