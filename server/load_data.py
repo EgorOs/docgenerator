@@ -1,10 +1,11 @@
 import os
 import json
 import logging
+import re
 from pathlib import Path
 
-import pymongo
-from pymongo import MongoClient
+# import pymongo
+# from pymongo import MongoClient
 
 
 def connect_to_db():
@@ -30,6 +31,27 @@ def get_full_path_to_documents():
     return files
 
 
+def tokeize_main_text(text, tags, escape_char='<%{}%>'):
+    initial_len = len(text)
+    tags_shortcuts = {
+        'naturname': u'\u1234',
+        'jurname': u'\u1235',
+        'datetime': u'\u1236',
+        'docinvolvedparty': u'\u1237',
+    }
+    for tag in tags:
+        span = tag['span']
+        token_len = span['end'] - span['start']
+        token = tags_shortcuts[tag['type']].center(token_len, '_')
+        text = text[:span['start']] + token + text[span['end']:]
+        assert len(text) == initial_len
+    for tag, shortcut in tags_shortcuts.items():
+        text = re.sub(
+            r'_*{}_*'.format(shortcut), escape_char.format(tag), text
+        )
+    return text
+
+
 def upload_data():
     """
     Goes to directory with documents and uploads theirs data to MongoDB
@@ -45,29 +67,52 @@ def upload_data():
         'DocTitle': 'doctitle',
         'DocInvolvedParty': 'docinvolvedparty',
     }
-    collection = connect_to_db()
+    in_text_values = {
+        'NatürlichePersonen': 'naturname',
+        'JuristischePersonen': 'jurname',
+        'DocDueDate': 'datetime',
+        'DocInvolvedParty': 'docinvolvedparty',
+    }
+
+
+    # collection = connect_to_db()
     for file in get_full_path_to_documents():
         data = []
+        span_data = []
+        content = ''
         with open(file) as document:
             doc = json.load(document)
         for main_key in doc:
             if main_key == 'Tags.contents':
-                data.append(
-                    {'type': 'content',
-                     'value': doc[main_key],
-                     'document': file,
-                     })
+
+                content = doc[main_key]
             if main_key == 'tags':
                 for key in doc[main_key]:
                     if key['type'] in db_values:
+                        if key['type'] in in_text_values:
+                            span_data.append({
+                                'type': db_values[key['type']],
+                                'span': key['features']['Entity.span'],
+                                'value': key['mainForm']
+                            })
                         data.append({
                             'type': db_values[key['type']],
                             'value': key['mainForm'],
                             'document': file.rpartition('/')[-1],
-                            'originalType': key['type']
+                            'originalType': key['type'],
                         })
-        result = collection.insert_many(data)
-        logging.info(f'Uploaded successfully, inserted_ids : {result.inserted_ids}')
+        data.append(
+            {
+                'type': 'content',
+                'value': tokeize_main_text(content, span_data),
+                'document': file,
+            }
+        )
+
+        import pprint
+        pprint.pprint(data)
+        # result = collection.insert_many(data)
+        # logging.info(f'Uploaded successfully, inserted_ids : {result.inserted_ids}')
     return 'All done'
 
 
