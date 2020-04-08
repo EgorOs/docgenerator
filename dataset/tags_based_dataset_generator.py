@@ -54,13 +54,13 @@ class DocumentGenerator:
             "briefpost"
         ]
 
-        areas_dict = self.create_areas_dict(f'areas_{filename.split(".")[0]}', scale_factor)
+        areas_dict = self.create_areas_dict(f'{filename.split(".")[0]}', scale_factor)
 
-        with open(self.areas_path / f'areas_{filename}.json', "w") as result:
+        with open(self.areas_path / f'{filename}.json', "w") as result:
             result.write(json.dumps(areas_dict, indent=2))
 
         df = self.get_dataframe(areas_dict, scale_factor)
-        df.to_csv(self.coord_path /f'coordinates_{filename}.csv', sep=',', index=False)
+        df.to_csv(self.coord_path /f'{filename}.csv', sep=',', index=False)
 
     def _make_dirs(self):
         os.makedirs(str(self.data_path), exist_ok=True)
@@ -101,7 +101,7 @@ class DocumentGenerator:
             'width':    [ceil(element.size['width'] * scale_factor) for element in elements],
             'height':   [ceil(element.size['height'] * scale_factor) for element in elements],
             'label':    [element.get_attribute('label') for element in elements],
-            'additional_label':    [element.get_attribute('label') for element in elements],
+            'label2':    [element.get_attribute('label') for element in elements],
         }
 
         # Add area labels
@@ -116,7 +116,8 @@ class DocumentGenerator:
     def create_areas_dict(self, file_name, scale_factor):
         output = dict()
         page_size = self.driver.get_window_size()
-        output['class'] = 'none'
+        context = self.driver.find_element_by_id('context')
+        output['class'] = context.get_attribute('doctype')
         output['pageSizes'] = [{
             'pw': page_size['width'],
             'ph': page_size['height'],
@@ -149,7 +150,7 @@ class DocumentGenerator:
             scale_factor=1.5,
     ):
         self._make_dirs()
-        for idx in range(n_samples):
+        for idx in range(290, n_samples):
             self._generate_single(
                 str(idx), url, window_width, window_height, scale_factor
             )
@@ -176,4 +177,4 @@ if __name__ == "__main__":
 
     document_gen = DocumentGenerator(driver)
     with document_gen as dg:
-        dg.generate(1, window_width=width, window_height=height, scale_factor=1.8)
+        dg.generate(300, window_width=width, window_height=height, scale_factor=1.8)
