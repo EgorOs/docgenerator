@@ -34,10 +34,14 @@ const insertDocuments = function(db, callback) {
 
   	// phone
   	{type: 'phone', value: '+49 (0)221 94373 6000 612'},
+    {type: 'phone', value: '+49 (0)108 66795 8307 612'},
+    {type: 'phone', value: '+49 (0)393 64173 4134 612'},
   	{type: 'phone', value: '0231/926-0'},
 
   	// fax
   	{type: 'fax', value: '+49 (0)221 94373 6000 1612'},
+    {type: 'phone', value: '+49 (0)108 66795 8307 1612'},
+    {type: 'phone', value: '+49 (0)393 64173 4134 1612'},
   	{type: 'fax', value: '0231-926-10600'},
 
   	// email
