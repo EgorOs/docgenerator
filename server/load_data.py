@@ -4,6 +4,7 @@ import logging
 import re
 from pathlib import Path
 
+
 import pymongo
 from pymongo import MongoClient
 
@@ -37,7 +38,8 @@ def tokeize_main_text(text, tags, escape_char='<%{}%>'):
         'naturname': u'\u1234',
         'jurname': u'\u1235',
         'datetime': u'\u1236',
-        'docinvolvedparty': u'\u1237',
+        'docinvolvedparty-n': u'\u1237',
+        'docinvolvedparty-j': u'\u1238',
     }
     for tag in tags:
         span = tag['span']
@@ -58,6 +60,7 @@ def upload_data():
     Returns:
         logging.info: info about successful complete
     """
+    doc_inv_pattern = 'docinvolvedparty-{}'
     db_values = {
         'NatürlichePersonen': 'naturname',
         'JuristischePersonen': 'jurname',
@@ -74,7 +77,6 @@ def upload_data():
         'DocInvolvedParty': 'docinvolvedparty',
     }
 
-
     collection = connect_to_db()
     for file in get_full_path_to_documents():
         data = []
@@ -82,34 +84,61 @@ def upload_data():
         content = ''
         with open(file) as document:
             doc = json.load(document)
+        doc_inv = []
         for main_key in doc:
             if main_key == 'Tags.contents':
-
                 content = doc[main_key]
             if main_key == 'tags':
-                for key in doc[main_key]:
+                for key in sorted(doc[main_key], key=lambda x: x['type']):
                     if key['type'] in db_values:
                         if key['type'] in in_text_values:
-                            span_data.append({
-                                'type': db_values[key['type']],
-                                'span': key['features']['Entity.span'],
+                            span = key['features']['Entity.span']
+                            tag_type = db_values[key['type']]
+                            token_type = tag_type
+                            if key['type'] in (
+                                    'NatürlichePersonen', 'JuristischePersonen'
+                            ):
+                                for ent in doc_inv:
+                                    if (
+                                        span["start"] == ent["span"]["start"]
+                                        and span["end"] == ent["span"]["end"]
+                                    ):
+                                        token_type = doc_inv_pattern.format(key['type'][0].lower())
+                                        ent['type'] = tag_type
+                            ent = {
+                                'type': token_type,
+                                'span': span,
                                 'value': key['mainForm']
+                            }
+                            if key['type'] == 'DocInvolvedParty':
+                                doc_inv.append(ent)
+                            else:
+                                span_data.append(ent)
+                                data.append({
+                                    'type': tag_type,
+                                    'value': key['mainForm'],
+                                    'document': file.rpartition('/')[-1],
+                                    'originalType': key['type'],
+                                })
+
+                        else:
+                            data.append({
+                                'type': db_values[key['type']],
+                                'value': key['mainForm'],
+                                'document': file.rpartition('/')[-1],
+                                'originalType': key['type'],
                             })
-                        data.append({
-                            'type': db_values[key['type']],
-                            'value': key['mainForm'],
-                            'document': file.rpartition('/')[-1],
-                            'originalType': key['type'],
-                        })
         data.append(
             {
                 'type': 'content',
                 'value': tokeize_main_text(content, span_data),
-                'document': file,
+                'document': file.rpartition('/')[-1],
             }
         )
 
+
         result = collection.insert_many(data)
+
         logging.info(f'Uploaded successfully, inserted_ids : {result.inserted_ids}')
     return 'All done'
 
