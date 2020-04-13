@@ -5,7 +5,8 @@
 </style>
 
 <div >
-  <div *appRandomTemplate="[contact1, contact2, contact3]"></div>
+  <div *appRandomTemplate="[contact1, contact2]"></div>
+<!--  <div *appRandomTemplate="[contact1, contact2, contact3]"></div>-->
 </div>
 
 <ng-template #contact1>
@@ -13,7 +14,7 @@
   <div id="contact">
     <ul random-interval-font-size="14:18pt">
       <li>
-        <app-entity endpoint="naturname"></app-entity>
+        <app-entity endpoint="docinvolvedparty1"></app-entity>
       </li>
       <li>
         <app-entity endpoint="address"></app-entity>
@@ -36,7 +37,7 @@
   <div id="contact">
     <ul random-interval-font-size="16:18pt">
       <li>
-        <app-entity endpoint="jurname"></app-entity>
+        <app-entity endpoint="docinvolvedparty2"></app-entity>
       </li>
       <li>
         <app-entity endpoint="address"></app-entity>

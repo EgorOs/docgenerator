@@ -1,25 +1,10 @@
-import { Directive, ElementRef, TemplateRef, ViewContainerRef, Input} from '@angular/core';
+import { Directive, ElementRef, TemplateRef, ViewContainerRef, OnInit, Input} from '@angular/core';
 import {Randomization, RandomizedCSSParser} from './utils';
 
 @Directive({
   selector: '[appRandomTemplate]'
 })
 export class RandomTemplateDirective {
-
-  // constructor(
-  //   private elem: ElementRef) {
-  //  Wait for DOM elements to load and then render randomized properties
-  // window.onload = (event) => {
-  //   for (let i = 0; i < elem.nativeElement.childElementCount; i++) {
-  //     RandomizedCSSParser.renderRandomizedStyleRecursively(elem.nativeElement.children[i]);
-  //   }
-  // }
-  // document.addEventListener("DOMContentLoaded", function(e) {
-  //   for (let i = 0; i < elem.nativeElement.childElementCount; i++) {
-  //     RandomizedCSSParser.renderRandomizedStyleRecursively(elem.nativeElement.children[i]);
-  //   }
-  // })
-  // }
 
   constructor(
     private templateRef: TemplateRef<any>,
@@ -40,15 +25,12 @@ export class RandomRenderDirective {
 
   constructor(
     private elem: ElementRef) {
-       // Wait for DOM elements to load and then render randomized properties
-      // window.onload = (event) => {
-      //   console.log(elem.nativeElement)
-      //   for (let i = 0; i < elem.nativeElement.childElementCount; i++) {
-      //     RandomizedCSSParser.renderRandomizedStyleRecursively(elem.nativeElement.children[i]);
-      //   }
-      // };
-      document.addEventListener('DOMContentLoaded', (e) => {
-          RandomizedCSSParser.renderRandomizedStyleRecursively(elem.nativeElement);
-      });
     }
+
+  ngOnInit() {
+    console.log('Directive is called')
+    document.addEventListener('DOMContentLoaded', (e) => {
+      RandomizedCSSParser.renderRandomizedStyleRecursively(this.elem.nativeElement);
+    });
+  }
 }

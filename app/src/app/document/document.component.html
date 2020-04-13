@@ -1,0 +1,5 @@
+ <div *ngIf="ready; else elseBlock">
+    <div [innerHTML]="template | sanitizeHtml"></div>
+  </div>
+
+ <ng-template #elseBlock>Waiting for template...</ng-template>
