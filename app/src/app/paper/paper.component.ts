@@ -14,8 +14,8 @@ export class PaperComponent extends BaseRandomizedComponent {
   paperBgUrls = [
     'url(\'https://images.unsplash.com/photo-1566041510632-30055e21a9cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9\')',
     'url(\'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_NF1bGCj1mSbTfuuh2408tjJU7qnlOdOc09hMzIm22TT05kD6\')',
-    'url(../../assets/bigtexture/1.png)', 
-    'url(../../assets/bigtexture/2.png)', 
+    'url(../../assets/bigtexture/1.png)',
+    'url(../../assets/bigtexture/2.png)',
     'url(../../assets/bigtexture/3.png)',
     'url(../../assets/bigtexture/4.png)',
     'url(../../assets/bigtexture/5.png)',
@@ -23,6 +23,17 @@ export class PaperComponent extends BaseRandomizedComponent {
     'url(../../assets/bigtexture/7.png)',
     'url(../../assets/bigtexture/8.png)',
   ];
+
+  template = '<h1>Template</h1>'
+  ngOnInit(): void {
+    super.ngOnInit();
+    this.http.get('http://127.0.0.1:3000/document').subscribe((data: any) => {
+      this.template = data['template'];
+      console.log(data)
+    }, error => {
+      console.log("There was an error:", error);
+    });
+  }
 
   randomPaperBg = Randomization.getRandom(this.paperBgUrls);
   textShadow = '0 0 1px rgba(0,0,0,' + Math.random() + ')';

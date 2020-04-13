@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RandomizedCSSParser } from '../utils';
 import { Randomization } from "../utils";
+import { ContextService } from "../context.service";
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Randomization } from "../utils";
 })
 export class BaseRandomizedComponent implements OnInit {
 
-  constructor(public elem: ElementRef, public http: HttpClient) {}
+  constructor(public elem: ElementRef, public http: HttpClient, public context: ContextService) {}
 
   random = Randomization;
 

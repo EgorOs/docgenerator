@@ -17,6 +17,8 @@ import { WrapWordsPipe } from './wrap-words.pipe';
 import { TextComponent } from './text/text.component';
 import { EntityComponent } from './entity/entity.component';
 import { RandomImageComponent } from './random-image/random-image.component';
+import { SanitizeHtmlPipe } from './sanitize-html.pipe';
+import { DocumentComponent } from './document/document.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +35,9 @@ import { RandomImageComponent } from './random-image/random-image.component';
         WrapWordsPipe,
         TextComponent,
         EntityComponent,
-        RandomImageComponent
+        RandomImageComponent,
+        SanitizeHtmlPipe,
+        DocumentComponent
     ],
   imports: [
     BrowserModule,

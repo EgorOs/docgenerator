@@ -28,6 +28,19 @@ const getRandomRecordOfType = function(db, type, callback) {
   });
 }
 
+
+const getContext = function(db, callback) {
+  // Get the documents collection
+  const collection = db.collection('documents');
+  // Find some documents
+  collection.group(
+  	{key: {'type': 'jurname'}}
+  	).toArray(function(err, docs) {
+    assert.equal(err, null);
+    callback(docs);
+  });
+}
+
 // Connection URL
 const url = 'mongodb://localhost:27017';
  
@@ -53,6 +66,18 @@ app.get('/:type', (req, res) =>
 	  const db = client.db(dbName);
 	  
 	  getRandomRecordOfType(db, req.params.type, function(docs) {
+	    res.send(docs);
+	  });
+	}));
+
+
+app.get('/', (req, res) => 
+	MongoClient.connect(url, function(err, client) {
+	  assert.equal(null, err);
+	 
+	  const db = client.db(dbName);
+	  
+	  getContext(db, function(docs) {
 	    res.send(docs);
 	  });
 	}));
