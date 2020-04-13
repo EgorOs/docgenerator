@@ -22,10 +22,16 @@ label_mapping = {
     }
 
 replace_labels = {
-        'address': 'O',
-        'phone': 'O',
-        'fax': 'O',
-        'email': 'O',
+        'B-NatürlichePersonen': 'B-NaturlichePersonen',
+        'I-NatürlichePersonen': 'I-NaturlichePersonen',
+        'B-address': 'O',
+        'B-phone': 'O',
+        'B-fax': 'O',
+        'B-email': 'O',
+        'I-address': 'O',
+        'I-phone': 'O',
+        'I-fax': 'O',
+        'I-email': 'O',
 }
 
 def convert():
@@ -38,21 +44,20 @@ def convert():
         offset = 0
         offset_lst = []
         labels_lst = []
+        labels2_lst = []
         for row in df.iterrows():
 
             offset_lst.append(offset)
             offset += len(str(row[1]['word'])) + 1
             label = row[1]['label']
-            if label == 'O':
-                labels_lst.append(label)
-                continue
+            label2 = row[1]['label2']
 
-            # print(csv_filename, label, row[1]['word'])
-            label_prefix, label_base = label.split('-')
-            if label_base in replace_labels:
-                labels_lst.append('O')
-            else:
-                labels_lst.append('-'.join((label_prefix, label_mapping[label_base])))
+            if label in replace_labels.keys():
+                label = replace_labels[label]
+            if label2 in replace_labels.keys():
+                label2 = replace_labels[label2]
+            labels_lst.append(label)
+            labels2_lst.append(label2)
 
 
         offset_column = pd.Series(offset_lst, name='offset')

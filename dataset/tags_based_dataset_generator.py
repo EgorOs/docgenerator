@@ -8,6 +8,7 @@ import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from time import sleep
 
 
 class DocumentGenerator:
@@ -37,6 +38,7 @@ class DocumentGenerator:
         # Scale the page to get high resolution document
         # works properly only for browser in headless mode
         self.driver.execute_script(f"document.body.style.zoom='{scale_factor * 100}%'")
+        sleep(1)
         self.driver.save_screenshot(str(self.data_path / f'{filename}.png'))
 
         self.area_labels = [
@@ -101,7 +103,7 @@ class DocumentGenerator:
             'width':    [ceil(element.size['width'] * scale_factor) for element in elements],
             'height':   [ceil(element.size['height'] * scale_factor) for element in elements],
             'label':    [element.get_attribute('label') for element in elements],
-            'label2':    [element.get_attribute('label') for element in elements],
+            'label2':    [element.get_attribute('label2') for element in elements],
         }
 
         # Add area labels
@@ -116,8 +118,8 @@ class DocumentGenerator:
     def create_areas_dict(self, file_name, scale_factor):
         output = dict()
         page_size = self.driver.get_window_size()
-        context = self.driver.find_element_by_id('context')
-        output['class'] = context.get_attribute('doctype')
+        metadata = self.driver.find_elements_by_class_name('metadata')[0]
+        output['class'] = metadata.get_attribute('doctype')
         output['pageSizes'] = [{
             'pw': page_size['width'],
             'ph': page_size['height'],
@@ -150,7 +152,7 @@ class DocumentGenerator:
             scale_factor=1.5,
     ):
         self._make_dirs()
-        for idx in range(290, n_samples):
+        for idx in range(n_samples):
             self._generate_single(
                 str(idx), url, window_width, window_height, scale_factor
             )
@@ -177,4 +179,4 @@ if __name__ == "__main__":
 
     document_gen = DocumentGenerator(driver)
     with document_gen as dg:
-        dg.generate(300, window_width=width, window_height=height, scale_factor=1.8)
+        dg.generate(5, window_width=width, window_height=height, scale_factor=1.8)

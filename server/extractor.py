@@ -54,7 +54,7 @@ class ContentCollection(Endpoint):
         super().__init__(name, data, filename, type_to_name)
 
     def extract(self, data, filename, type_to_name):
-        content = data.get('Tags.contents')
+        content = data.get('Tags.contents', "")
         tags = data.get('tags')
         shortcuts = {e: chr(119552 + i) for i, e in enumerate(type_to_name.keys())}
         template = tokeize_main_text(content, tags, shortcuts, type_to_name)
@@ -69,6 +69,8 @@ class ContentCollection(Endpoint):
 
 def tokeize_main_text(text, tags, shortcuts, type_to_name, escape_char='<%{}%>'):
     initial_len = len(text)
+    if not text:
+        return text
     for tag in tags:
         features = tag.get('features')
         if not features:
@@ -97,7 +99,8 @@ class Extractor:
 
     def load(self):
         files_lst = os.listdir(self.dataset_path)
-        for filename in files_lst:    
+        for filename in files_lst:
+            print(filename)
             with open(self.dataset_path / filename, 'r') as file:
                 file_as_dict = json.load(file)
                 entity_collections = [
@@ -105,6 +108,10 @@ class Extractor:
                     EntityCollection('jur_personen', file_as_dict, filename, 'JuristischePersonen'),
                     EntityCollection('doc_due_date', file_as_dict, filename, 'DocDueDate'),
                     EntityCollection('doc_date', file_as_dict, filename, 'DocDate'),
+                    EntityCollection('address', file_as_dict, filename, 'address'),
+                    # EntityCollection('email', file_as_dict, filename, 'email'),
+                    EntityCollection('phone', file_as_dict, filename, 'phone'),
+                    EntityCollection('fax', file_as_dict, filename, 'fax'),
                     DocInvolvedCollection('doc_involved_party', file_as_dict, filename, 'NatürlichePersonen'),
                     DocInvolvedCollection('doc_involved_party', file_as_dict, filename, 'JuristischePersonen'),
                 ]
