@@ -6,6 +6,9 @@ from math import ceil
 import pandas as pd
 
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from time import sleep
@@ -38,7 +41,9 @@ class DocumentGenerator:
         # Scale the page to get high resolution document
         # works properly only for browser in headless mode
         self.driver.execute_script(f"document.body.style.zoom='{scale_factor * 100}%'")
-        sleep(1)
+        element = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.CLASS_NAME, "metadata")))
+        print(f'Located metadata for "{filename}"')
         self.driver.save_screenshot(str(self.data_path / f'{filename}.png'))
 
         self.area_labels = [
@@ -70,6 +75,8 @@ class DocumentGenerator:
         os.makedirs(str(self.areas_path), exist_ok=True)
 
     def element_belongs_to_area(self, element, areas_dict, area_label, scale_factor):
+        # FIXME just skipping
+        return False
         tags = areas_dict.get('tags')
         if not tags:
             return False
@@ -96,22 +103,23 @@ class DocumentGenerator:
         """
         elements = self.driver.find_elements_by_class_name("token")
         data = {
-            'offset':   [0] * len(elements),
-            'word':     [element.text for element in elements],
-            'x':        [ceil(element.location['x'] * scale_factor) for element in elements],
-            'y':        [ceil(element.location['y'] * scale_factor) for element in elements],
-            'width':    [ceil(element.size['width'] * scale_factor) for element in elements],
-            'height':   [ceil(element.size['height'] * scale_factor) for element in elements],
-            'label':    [element.get_attribute('label') for element in elements],
-            'label2':    [element.get_attribute('label2') for element in elements],
+            'offset':   [0] * len([element for element in elements if len(element.text) < 50]),
+            # FIXME sanity check that element.text is a word not a chunk of text
+            'word':     [element.text for element in elements if len(element.text) < 50],
+            'x':        [ceil(element.location['x'] * scale_factor) for element in elements if len(element.text) < 50],
+            'y':        [ceil(element.location['y'] * scale_factor) for element in elements if len(element.text) < 50],
+            'width':    [ceil(element.size['width'] * scale_factor) for element in elements if len(element.text) < 50],
+            'height':   [ceil(element.size['height'] * scale_factor) for element in elements if len(element.text) < 50],
+            'label':    [element.get_attribute('label') for element in elements if len(element.text) < 50],
+            'label2':    [element.get_attribute('label2') for element in elements if len(element.text) < 50],
         }
 
         # Add area labels
-        present_labels = [l.get('type') for l in areas_dict.get('tags')] if areas_dict.get('tags') else []
-        data.update({a_label: 
-            [1 if self.element_belongs_to_area(e, areas_dict, a_label, scale_factor) else 0 for e in elements]
-            if a_label in present_labels else [0] * len(elements)     # if label not found in dict fill columnt with 0
-            for a_label in self.area_labels})
+        # present_labels = [l.get('type') for l in areas_dict.get('tags')] if areas_dict.get('tags') else []
+        # data.update({a_label: 
+        #     [1 if self.element_belongs_to_area(e, areas_dict, a_label, scale_factor) else 0 for e in elements]
+        #     if a_label in present_labels else [0] * len(elements)     # if label not found in dict fill columnt with 0
+        #     for a_label in self.area_labels})
         df = pd.DataFrame(data=data)
         return df
 
@@ -120,6 +128,7 @@ class DocumentGenerator:
         page_size = self.driver.get_window_size()
         metadata = self.driver.find_elements_by_class_name('metadata')[0]
         output['class'] = metadata.get_attribute('doctype')
+        output['template'] = metadata.get_attribute('template')
         output['pageSizes'] = [{
             'pw': page_size['width'],
             'ph': page_size['height'],
@@ -154,7 +163,7 @@ class DocumentGenerator:
         self._make_dirs()
         for idx in range(n_samples):
             self._generate_single(
-                str(idx), url, window_width, window_height, scale_factor
+                str(idx).zfill(5), url, window_width, window_height, scale_factor
             )
 
     def __enter__(self):
@@ -179,4 +188,4 @@ if __name__ == "__main__":
 
     document_gen = DocumentGenerator(driver)
     with document_gen as dg:
-        dg.generate(5, window_width=width, window_height=height, scale_factor=1.8)
+        dg.generate(500, window_width=width, window_height=height, scale_factor=1.8)

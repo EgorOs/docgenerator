@@ -22,8 +22,10 @@ label_mapping = {
     }
 
 replace_labels = {
-        'B-NatürlichePersonen': 'B-NaturlichePersonen',
-        'I-NatürlichePersonen': 'I-NaturlichePersonen',
+        # 'B-NatürlichePersonen': 'B-NaturlichePersonen',
+        # 'I-NatürlichePersonen': 'I-NaturlichePersonen',
+        # 'B-DocDate': 'B-DocDueDate',
+        # 'I-DocDate': 'I-DocDueDate',
         'B-address': 'O',
         'B-phone': 'O',
         'B-fax': 'O',
@@ -62,7 +64,7 @@ def convert():
 
         offset_column = pd.Series(offset_lst, name='offset')
         label_column = pd.Series(labels_lst, name='label')
-        label2_column = pd.Series(labels_lst, name='label2')
+        label2_column = pd.Series(labels2_lst, name='label2')
         
         df.update(offset_column)
         df.update(label_column)
@@ -76,15 +78,16 @@ def convert():
          'height',
          'label',
          'label2',
-         'body',
-        'briefpost_header',
-        'email_header',
-        'doc_info',
-        'footer',
-        'logo',
-        'reference_to',
-        'reference_from',
-        'signature']
+         # 'body',
+        # 'briefpost_header',
+        # 'email_header',
+        # 'doc_info',
+        # 'footer',
+        # 'logo',
+        # 'reference_to',
+        # 'reference_from',
+        # 'signature'
+        ]
         ]
 
         df = df.dropna()
